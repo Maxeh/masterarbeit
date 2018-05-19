@@ -1,0 +1,16 @@
+// App Global Sass
+// --------------------------------------------------
+
+// bug fix: removes strange little rectangle which results from a small vertical scroll bar
+.scroll-content {
+  overflow-y: auto !important;
+}
+
+// bug fix: flickering of toolbar color when menu is opened
+.u2d-menu-content:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 56px;
+  background-color: #222; // the color of the menu's toolbar
+}

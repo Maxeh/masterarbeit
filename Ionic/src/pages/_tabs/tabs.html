@@ -1,0 +1,27 @@
+<ion-header no-border>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>UpToDate</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only style="padding:10px">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce>
+  <super-tabs toolbarColor="light" toolbarBackground="dark" indicatorColor="light" [config]="{ sideMenu: 'left' }" (tabSelect)="onTabSelect($event)">
+    <super-tab [root]="page1" title="News"></super-tab>
+    <super-tab [root]="page2" title="Wetter"></super-tab>
+    <super-tab [root]="page3" title="Notizen"></super-tab>
+  </super-tabs>
+
+  <ion-fab bottom right *ngIf="showFab">
+    <button ion-fab color="dark" (click)="logIn()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
