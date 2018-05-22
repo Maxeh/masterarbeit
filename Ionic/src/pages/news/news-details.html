@@ -1,0 +1,24 @@
+<ion-header no-border>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>MasterNews</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only style="padding:10px">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="article">
+    <img src="{{article.urlToImage}}" class="news-full-image">
+  </div>
+  <ion-card>
+    <ion-card-content class="news-description">
+      {{article.description}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

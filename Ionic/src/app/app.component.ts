@@ -33,8 +33,8 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       //this.statusBar.styleDefault();
-      this.statusBar.overlaysWebView(false);
-      this.statusBar.backgroundColorByHexString('#423f3f');
+      /*this.statusBar.overlaysWebView(false);
+      this.statusBar.backgroundColorByHexString('#423f3f');*/
       this.splashScreen.hide();
     });
   }
@@ -42,6 +42,6 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.push(page.component);
   }
 }

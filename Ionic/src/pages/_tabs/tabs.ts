@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {App, NavController} from 'ionic-angular';
 import { Events } from 'ionic-angular';
 
 import {NewsPage} from "../news/news";
@@ -17,7 +17,7 @@ export class TabsPage {
   page2 = WeatherPage;
   page3 = NotesPage;
 
-  constructor(public navCtrl: NavController, public events: Events) {
+  constructor(public navCtrl: NavController, public events: Events, public appCtrl: App){
   }
 
   ngAfterViewInit() {

@@ -13,6 +13,8 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {SuperTabsModule} from "ionic2-super-tabs";
 import {HttpClientModule} from '@angular/common/http';
+import {NewsCard} from "../pages/news/news-card";
+import {NewsDetailsPage} from "../pages/news/news-details";
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import {HttpClientModule} from '@angular/common/http';
     TabsPage,
     NewsPage,
     WeatherPage,
-    NotesPage
+    NotesPage,
+    NewsCard,
+    NewsDetailsPage,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,8 @@ import {HttpClientModule} from '@angular/common/http';
     TabsPage,
     NewsPage,
     WeatherPage,
-    NotesPage
+    NotesPage,
+    NewsDetailsPage
   ],
   providers: [
     StatusBar,

@@ -1,7 +1,10 @@
 <ion-content>
+  <div class="news-spinner" *ngIf="articles == null">
+    <ion-spinner></ion-spinner>
+  </div>
   <ion-list>
-    <ion-item *ngFor="let i of [1,11,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]">
-      ds
-    </ion-item>
+    <div *ngFor="let article of articles">
+      <news-card [article]="article" (click)="onNewsCardClick(article)"></news-card>
+    </div>
   </ion-list>
 </ion-content>
