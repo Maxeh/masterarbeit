@@ -1,0 +1,22 @@
+.notes-create-add-button {
+  padding: 15px;
+}
+
+.notes-create {
+  textarea {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #CCC;
+    height: 130px;
+    width: calc(100% - 20px);
+    resize: none;
+    color: black;
+  }
+
+  button {
+    margin: 0 10px 10px 10px;
+    width: calc(100% - 20px);
+  }
+}
+
+

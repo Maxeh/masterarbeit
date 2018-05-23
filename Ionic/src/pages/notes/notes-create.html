@@ -1,0 +1,16 @@
+<ion-header no-border>
+  <ion-navbar color="dark">
+    <ion-title>Neue Notiz</ion-title>
+    <ion-buttons end class="ios">
+      <button
+        (click)="onCreateNoteClick()"
+        ion-button icon-only style="padding:15px 10px"
+      ><ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="notes-create">
+  <ion-textarea #notesTextarea></ion-textarea>
+</ion-content>

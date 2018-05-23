@@ -9,6 +9,5 @@ export class NewsDetailsPage {
 
   constructor(public navParams: NavParams, public platform: Platform) {
     this.article = navParams.get('article');
-    console.log(this.article);
   }
 }

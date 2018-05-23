@@ -15,17 +15,14 @@ import {SuperTabsModule} from "ionic2-super-tabs";
 import {HttpClientModule} from '@angular/common/http';
 import {NewsCard} from "../pages/news/news-card";
 import {NewsDetailsPage} from "../pages/news/news-details";
+import {NotesCard} from "../pages/notes/notes-card";
+import {NotesCreatePage} from "../pages/notes/notes-create";
 
 
 @NgModule({
   declarations: [
-    MyApp,
-    TabsPage,
-    NewsPage,
-    WeatherPage,
-    NotesPage,
-    NewsCard,
-    NewsDetailsPage,
+    MyApp, TabsPage, NewsPage, WeatherPage, NotesPage, NewsCard,
+    NewsDetailsPage, NotesCreatePage, NotesCard
   ],
   imports: [
     BrowserModule,
@@ -35,12 +32,8 @@ import {NewsDetailsPage} from "../pages/news/news-details";
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    TabsPage,
-    NewsPage,
-    WeatherPage,
-    NotesPage,
-    NewsDetailsPage
+    MyApp, TabsPage, NewsPage, WeatherPage, NotesPage, NewsDetailsPage,
+    NotesCreatePage
   ],
   providers: [
     StatusBar,
