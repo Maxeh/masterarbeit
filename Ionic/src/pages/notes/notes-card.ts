@@ -1,13 +1,38 @@
-import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
-import {Events} from 'ionic-angular';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {AlertController} from "ionic-angular";
 
 @Component({
+  selector: 'notes-card',
   templateUrl: 'notes-card.html'
 })
 export class NotesCard {
-  test = "hallo welt";
+  @Input() note;
+  @Output() onDeleteCard = new EventEmitter();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events) {
+  constructor(private alertCtrl: AlertController) {
+  }
+
+  onDeleteClick() {
+    this.alertCtrl.create({
+      title: 'Wirklich löschen?',
+      buttons: [
+        {
+          text: 'Abbrechen',
+          role: 'cancel',
+          cssClass: 'delete-button-dialog-cancel',
+        },
+        {
+          text: 'Löschen',
+          cssClass: 'delete-button-dialog-confirm',
+          handler: () => {
+            this.onDeleteCard.emit(this.note.id);
+          }
+        }
+      ]
+    }).present();
+  }
+
+  onEditClick() {
+
   }
 }

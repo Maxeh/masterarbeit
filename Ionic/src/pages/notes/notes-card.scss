@@ -1,0 +1,36 @@
+.notes-card {
+  ion-card-header {
+    padding: 3px 10px 3px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  ion-card-content {
+    padding: 8px 16px;
+    font-size: 1.6rem;
+  }
+
+  hr {
+    margin: 0;
+    height: 1px;
+  }
+
+  .delete-button, .edit-button {
+    margin: 0;
+    padding: 5px 0;
+    width: 25px;
+
+    .button-inner {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.delete-button-dialog-cancel .button-inner {
+  color: color($colors, dark);
+}
+
+.delete-button-dialog-confirm .button-inner {
+  color: color($colors, danger);
+}

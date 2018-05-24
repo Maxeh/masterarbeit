@@ -1,5 +1,16 @@
-<ion-card>
-  <ion-card-content>
-    hello world
+<ion-card class="notes-card">
+  <ion-card-header>
+    {{note.date}}
+    <div>
+      <button clear ion-button icon-only class="delete-button" (click)="onEditClick()">
+        <ion-icon name="md-create" color="dark"></ion-icon>
+      </button>
+      <button clear ion-button icon-only class="delete-button" (click)="onDeleteClick()">
+        <ion-icon name="md-trash" color="dark"></ion-icon>
+      </button>
+    </div>
+  </ion-card-header>
+  <hr>
+  <ion-card-content [innerHTML]="note.text">
   </ion-card-content>
 </ion-card>

@@ -1,3 +1,10 @@
 <ion-content>
-
+  <div class="notes-empty" *ngIf="notes.length == 0">
+    Keine Notizen angelegt
+  </div>
+  <ion-list>
+    <div *ngFor="let note of notes">
+      <notes-card [note]="note" (onDeleteCard)="onDeleteCard($event)"></notes-card>
+    </div>
+  </ion-list>
 </ion-content>
