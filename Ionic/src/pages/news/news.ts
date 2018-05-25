@@ -10,7 +10,7 @@ export class NewsPage {
   articles: any = null;
 
   constructor(private http: HttpClient, public appCtrl: App) {
-    this.http.get('https://maxeh.de/news.php').subscribe(res => {
+    this.http.get('https://maxeh.de/masternews.php?type=news').subscribe(res => {
       let data: any = res;
       data.articles.forEach((article) => {
         article.thumbnail = article.urlToImage.replace("860_poster", "230_poster");
