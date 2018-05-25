@@ -17,12 +17,13 @@ import {NewsCard} from "../pages/news/news-card";
 import {NewsDetailsPage} from "../pages/news/news-details";
 import {NotesCard} from "../pages/notes/notes-card";
 import {NotesCreatePage} from "../pages/notes/notes-create";
+import {WeatherCard} from "../pages/weather/weather-card";
 
 
 @NgModule({
   declarations: [
     MyApp, TabsPage, NewsPage, WeatherPage, NotesPage, NewsCard,
-    NewsDetailsPage, NotesCreatePage, NotesCard
+    NewsDetailsPage, NotesCreatePage, NotesCard, WeatherCard
   ],
   imports: [
     BrowserModule,

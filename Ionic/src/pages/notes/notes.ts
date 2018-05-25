@@ -17,17 +17,41 @@ export class NotesPage {
 
   onCreateNewNoteClick() {
     this.navParams.get('rootNavCtrl').push(NotesCreatePage, {
-      noteCreated: (note) => this.noteCreated(note),
-      id: Date.now() // as unique id
+      mode: "create",
+      id: Date.now(), // as unique id
+      noteCreated: (newNote) => this.noteCreated(newNote)
     });
   }
 
+  // callback called by NoteCreatePage
   noteCreated(note) {
     note.text = note.text.replace(/(\r?\n){2,}/g, '<br><br>');
     note.text = note.text.replace(/(\r?\n)/g, '<br>');
     this.notes.push(note);
   }
 
+  // callback called by NoteCreatePage
+  noteEdited(note) {
+    note.text = note.text.replace(/(\r?\n){2,}/g, '<br><br>');
+    note.text = note.text.replace(/(\r?\n)/g, '<br>');
+    this.notes.forEach((n) => {
+      if (n.id == note.id){
+        n.text = note.text;
+        n.date = note.date;
+      }
+    });
+  }
+
+  // output event of note-card
+  onEditCard(note) {
+    this.navParams.get('rootNavCtrl').push(NotesCreatePage, {
+      mode: "edit",
+      note: note,
+      noteEdited: (editedNote) => this.noteEdited(editedNote)
+    });
+  }
+
+  // output event of note-card
   onDeleteCard(id) {
     this.notes = this.notes.filter((note) => note.id !== id);
   }

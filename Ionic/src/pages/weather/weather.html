@@ -1,6 +1,5 @@
 <ion-content>
-  <ion-item
-    *ngFor="let i of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]">
-    ds
-  </ion-item>
+  <div *ngFor="let city of cities">
+    <weather-card [city]="city"></weather-card>
+  </div>
 </ion-content>

@@ -4,7 +4,11 @@
   </div>
   <ion-list>
     <div *ngFor="let note of notes">
-      <notes-card [note]="note" (onDeleteCard)="onDeleteCard($event)"></notes-card>
+      <notes-card
+        [note]="note"
+        (onDeleteCard)="onDeleteCard($event)"
+        (onEditCard)="onEditCard($event)"
+      ></notes-card>
     </div>
   </ion-list>
 </ion-content>

@@ -1,11 +1,19 @@
 <ion-header no-border>
   <ion-navbar color="dark">
-    <ion-title>Neue Notiz</ion-title>
+    <ion-title *ngIf="mode == 'create'">Neue Notiz</ion-title>
+    <ion-title *ngIf="mode == 'edit'">Notiz bearbeiten</ion-title>
     <ion-buttons end class="ios">
       <button
+        *ngIf="mode == 'create'"
         (click)="onCreateNoteClick()"
         ion-button icon-only style="padding:15px 10px"
       ><ion-icon name="add"></ion-icon>
+      </button>
+      <button
+        *ngIf="mode == 'edit'"
+        (click)="onEditNoteClick()"
+        ion-button icon-only style="padding:15px 10px; font-size:1.4rem"
+      ><ion-icon name="md-create"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>

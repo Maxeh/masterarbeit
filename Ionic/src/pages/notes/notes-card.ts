@@ -8,6 +8,7 @@ import {AlertController} from "ionic-angular";
 export class NotesCard {
   @Input() note;
   @Output() onDeleteCard = new EventEmitter();
+  @Output() onEditCard = new EventEmitter();
 
   constructor(private alertCtrl: AlertController) {
   }
@@ -33,6 +34,6 @@ export class NotesCard {
   }
 
   onEditClick() {
-
+    this.onEditCard.emit(this.note);
   }
 }
