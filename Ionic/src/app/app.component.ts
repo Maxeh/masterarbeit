@@ -5,16 +5,13 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {TabsPage} from "../pages/_tabs/tabs";
 import {WeatherPage} from "../pages/weather/weather";
-import {NewsPage} from "../pages/news/news";
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
   rootPage: any = TabsPage;
-
   pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
@@ -22,10 +19,16 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      {title: 'News', component: NewsPage},
-      {title: 'Wetter', component: WeatherPage}
+      {title: 'News', component: MyApp},
+      {title: 'Wetter', component: MyApp},
+      {title: 'Notizen', component: MyApp},
+      {title: 'Einstellungen', component: WeatherPage},
+      {title: 'Informationen', component: WeatherPage}
     ];
+  }
 
+  ionViewWillEnter() {
+    console.log(this.nav);
   }
 
   initializeApp() {
@@ -42,6 +45,6 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.push(page.component);
+    this.nav.setRoot(page.component);
   }
 }

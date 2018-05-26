@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {AlertController} from "ionic-angular";
 
 @Component({
   selector: 'weather-card',
@@ -9,11 +10,27 @@ export class WeatherCard {
   @Output() onDeleteCard = new EventEmitter();
   Math: any;
 
-  constructor() {
+  constructor(private alertCtrl: AlertController) {
     this.Math = Math;
   }
 
   onDeleteClick() {
-    this.onDeleteCard.emit(this.city.city.id);
+    this.alertCtrl.create({
+      title: 'Wirklich löschen?',
+      buttons: [
+        {
+          text: 'Abbrechen',
+          role: 'cancel',
+          cssClass: 'dialog-cancel',
+        },
+        {
+          text: 'Löschen',
+          cssClass: 'dialog-confirm',
+          handler: () => {
+            this.onDeleteCard.emit(this.city.city.id);
+          }
+        }
+      ]
+    }).present();
   }
 }

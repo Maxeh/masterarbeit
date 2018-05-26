@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
   templateUrl: 'weather.html'
 })
 export class WeatherPage {
-  startCities = [];
+  startCities = ["Essen", "Leipzig"];
   cities: any = [];
 
   constructor(private http: HttpClient, public alertCtrl: AlertController, public events: Events) {
@@ -45,7 +45,7 @@ export class WeatherPage {
 
   cityAdd(city) {
     this.http.get('https://maxeh.de/masternews.php?type=weather&city=' + city).subscribe(res => {
-      if (res.cod === "200") {
+      if ((res as any).cod === "200") {
         this.cities.push(res);
       }
     });

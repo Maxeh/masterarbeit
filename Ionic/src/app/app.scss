@@ -15,6 +15,16 @@
   background-color: #222; // the color of the menu's toolbar
 }
 
+.menu-content {
+  .item-inner, .item-block {
+    border: none !important;
+  }
+
+  hr {
+    height: 1px;
+  }
+}
+
 .dialog-cancel .button-inner {
   color: color($colors, dark);
 }

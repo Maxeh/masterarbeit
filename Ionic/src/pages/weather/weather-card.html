@@ -7,7 +7,7 @@
   </div>
   <hr>
   <ion-card-content>
-    <div class="weather-card-item" *ngFor="let item of city.list.slice(0,4)">
+    <div class="weather-card-item" *ngFor="let item of city.list.slice(0,6)">
       <div class="first-row">{{item.dt_txt.split(" ")[1].split(":")[0]}}:{{item.dt_txt.split(" ")[1].split(":")[1]}}</div>
       <img [src]="'http://openweathermap.org/img/w/' + item.weather[0].icon + '.png'">
       <div class="third-row">{{Math.round(item.main.temp - 273.15)}}°</div>
