@@ -29,7 +29,9 @@ export class NotesCreatePage {
 
   ionViewDidLoad() {
     if (this.navParams.data.mode === "edit") {
-      this.notesTextarea.value = this.navParams.data.note.text;
+      let text = this.navParams.data.note.text;
+      text = text.replace(/(<br>)/g, '\r\n');
+      this.notesTextarea.value = text;
       this.mode = "edit";
     }
     else if (this.navParams.data.mode === "create") {

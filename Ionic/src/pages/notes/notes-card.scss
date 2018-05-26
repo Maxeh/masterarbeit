@@ -7,7 +7,7 @@
   }
 
   ion-card-content {
-    padding: 8px 16px;
+    padding: 13px 16px;
     font-size: 1.6rem;
   }
 
@@ -25,12 +25,4 @@
       font-size: 1.4rem;
     }
   }
-}
-
-.delete-button-dialog-cancel .button-inner {
-  color: color($colors, dark);
-}
-
-.delete-button-dialog-confirm .button-inner {
-  color: color($colors, danger);
 }

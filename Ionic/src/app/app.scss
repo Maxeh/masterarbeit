@@ -7,10 +7,18 @@
 }
 
 // bug fix: flickering of toolbar color when menu is opened
-.u2d-menu-content:before {
+.menu-content:before {
   content: "";
   display: block;
   width: 100%;
   height: 56px;
   background-color: #222; // the color of the menu's toolbar
+}
+
+.dialog-cancel .button-inner {
+  color: color($colors, dark);
+}
+
+.dialog-confirm .button-inner {
+  color: color($colors, danger);
 }

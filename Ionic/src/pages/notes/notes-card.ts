@@ -20,11 +20,11 @@ export class NotesCard {
         {
           text: 'Abbrechen',
           role: 'cancel',
-          cssClass: 'delete-button-dialog-cancel',
+          cssClass: 'dialog-cancel',
         },
         {
           text: 'Löschen',
-          cssClass: 'delete-button-dialog-confirm',
+          cssClass: 'dialog-confirm',
           handler: () => {
             this.onDeleteCard.emit(this.note.id);
           }

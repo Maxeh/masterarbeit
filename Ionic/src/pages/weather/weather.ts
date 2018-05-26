@@ -1,16 +1,20 @@
 import {Component} from '@angular/core';
-import {AlertController, Events, NavParams} from 'ionic-angular';
+import {AlertController, Events} from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
 
 @Component({
   templateUrl: 'weather.html'
 })
 export class WeatherPage {
-  cities = [1,1];
+  startCities = [];
+  cities: any = [];
 
-  constructor(private http: HttpClient, public navParams: NavParams, public alertCtrl: AlertController, public events: Events) {
+  constructor(private http: HttpClient, public alertCtrl: AlertController, public events: Events) {
     events.subscribe('event:fab-weather', () => {
       this.onAddCityClick();
+    });
+    this.startCities.forEach((city) => {
+      this.cityAdd(city);
     });
   }
 
@@ -25,11 +29,13 @@ export class WeatherPage {
         {
           text: 'Abbrechen',
           role: 'cancel',
+          cssClass: 'dialog-cancel',
         },
         {
           text: 'Hinzufügen',
+          cssClass: 'dialog-confirm',
           handler: data => {
-            this.cityAdded(data.city);
+            this.cityAdd(data.city);
           }
         }
       ]
@@ -37,11 +43,16 @@ export class WeatherPage {
     alert.present();
   }
 
-  cityAdded(city) {
+  cityAdd(city) {
     this.http.get('https://maxeh.de/masternews.php?type=weather&city=' + city).subscribe(res => {
-      let data: any = res;
-      this.cities.push(data);
-      console.log(this.cities);
+      if (res.cod === "200") {
+        this.cities.push(res);
+      }
     });
+  }
+
+  // output event of weather-card
+  onDeleteCard(id){
+    this.cities = this.cities.filter((city) => city.city.id !== id);
   }
 }

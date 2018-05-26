@@ -6,7 +6,14 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class WeatherCard {
   @Input() city;
+  @Output() onDeleteCard = new EventEmitter();
+  Math: any;
 
   constructor() {
+    this.Math = Math;
+  }
+
+  onDeleteClick() {
+    this.onDeleteCard.emit(this.city.city.id);
   }
 }

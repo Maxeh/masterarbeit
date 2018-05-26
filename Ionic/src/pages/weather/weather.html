@@ -1,5 +1,8 @@
 <ion-content>
+  <div class="weather-empty" *ngIf="cities.length == 0">
+    Keine Städte hinzugefügt
+  </div>
   <div *ngFor="let city of cities">
-    <weather-card [city]="city"></weather-card>
+    <weather-card [city]="city" (onDeleteCard)="onDeleteCard($event)"></weather-card>
   </div>
 </ion-content>
