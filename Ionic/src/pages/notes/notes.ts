@@ -10,6 +10,7 @@ export class NotesPage {
   public notes = [];
 
   constructor(public navParams: NavParams, public events: Events) {
+    events.unsubscribe("event:fab-notes"); // remove old event
     events.subscribe('event:fab-notes', () => {
       this.onCreateNewNoteClick();
     });

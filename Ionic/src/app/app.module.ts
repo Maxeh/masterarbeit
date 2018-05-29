@@ -18,6 +18,7 @@ import {NewsDetailsPage} from "../pages/news/news-details";
 import {NotesCard} from "../pages/notes/notes-card";
 import {NotesCreatePage} from "../pages/notes/notes-create";
 import {WeatherCard} from "../pages/weather/weather-card";
+import {NavStateService} from "../services/nav-state-service";
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import {WeatherCard} from "../pages/weather/weather-card";
     NotesCreatePage
   ],
   providers: [
+    NavStateService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

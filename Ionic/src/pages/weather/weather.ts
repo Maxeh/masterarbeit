@@ -10,9 +10,11 @@ export class WeatherPage {
   cities: any = [];
 
   constructor(private http: HttpClient, public alertCtrl: AlertController, public events: Events) {
+    events.unsubscribe("event:fab-weather"); // remove old event
     events.subscribe('event:fab-weather', () => {
       this.onAddCityClick();
     });
+
     this.startCities.forEach((city) => {
       this.cityAdd(city);
     });

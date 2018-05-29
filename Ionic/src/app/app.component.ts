@@ -1,10 +1,11 @@
 import {Component, ViewChild} from '@angular/core';
-import {Nav, Platform} from 'ionic-angular';
+import {Events, Nav, Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {TabsPage} from "../pages/_tabs/tabs";
 import {WeatherPage} from "../pages/weather/weather";
+import {NavStateService} from "../services/nav-state-service";
 
 @Component({
   templateUrl: 'app.html'
@@ -12,23 +13,23 @@ import {WeatherPage} from "../pages/weather/weather";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = TabsPage;
-  pages: Array<{ title: string, component: any }>;
+  pages: Array<{ id: number, title: string, component: any }>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public events: Events, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public navState: NavStateService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      {title: 'News', component: MyApp},
-      {title: 'Wetter', component: MyApp},
-      {title: 'Notizen', component: MyApp},
-      {title: 'Einstellungen', component: WeatherPage},
-      {title: 'Informationen', component: WeatherPage}
+      {id: 0, title: 'News', component: MyApp},
+      {id: 1, title: 'Wetter', component: MyApp},
+      {id: 2, title: 'Notizen', component: MyApp},
+      {id: 3, title: 'Einstellungen', component: WeatherPage},
+      {id: 4, title: 'Informationen', component: WeatherPage}
     ];
   }
 
   ionViewWillEnter() {
-    console.log(this.nav);
+    this.events.publish('event:tab-change', {tab: this.navState.getNavTab()});
   }
 
   initializeApp() {
@@ -43,8 +44,17 @@ export class MyApp {
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    let inSuperTabs = this.navState.getInSuperTabs();
+
+    if (page.id < 3){
+      this.navState.setNavTab(page.id);
+      this.navState.setInSuperTabs(true);
+    }
+    else this.navState.setInSuperTabs(false);
+
+    if (page.id < 3 && inSuperTabs){
+      this.events.publish('event:tab-change', {tab: page.id});
+    }
+    else this.nav.setRoot(page.component);
   }
 }
