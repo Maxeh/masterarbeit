@@ -1,0 +1,17 @@
+.settings-list {
+  .settings-list-caption {
+    padding: 20px 0 15px 20px;
+    font-size: 2rem;
+  }
+
+  .settings-last-check-item {
+    .item-inner, .item-block {
+      border: none !important;
+    }
+  }
+
+  hr {
+    height: 1px;
+    margin: 0;
+  }
+}

@@ -1,0 +1,52 @@
+<ion-header no-border>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>MasterNews</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="settings-list">
+    <div class="settings-list-caption">
+      Nachrichten Quellen
+    </div>
+    <hr>
+    <ion-item>
+      <ion-label>Spiegel Online</ion-label>
+      <ion-checkbox color="dark" [checked]="true"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Focus Online</ion-label>
+      <ion-checkbox color="dark"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Handelsblatt</ion-label>
+      <ion-checkbox color="dark"></ion-checkbox>
+    </ion-item>
+    <ion-item class="settings-last-check-item">
+      <ion-label>Wirtschaftswoche</ion-label>
+      <ion-checkbox color="dark"></ion-checkbox>
+    </ion-item>
+    <hr>
+    <div class="settings-list-caption">
+      Wetter Quellen
+    </div>
+    <hr>
+    <div radio-group>
+      <ion-item>
+        <ion-label>OpenWeatherMap</ion-label>
+        <ion-radio color="dark" value="friends" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Wetter Online</ion-label>
+        <ion-radio color="dark" value="family"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Wetter24</ion-label>
+        <ion-radio color="dark"value="enemies" [disabled]="isDisabled"></ion-radio>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

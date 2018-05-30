@@ -20,12 +20,14 @@ import {NotesCreatePage} from "../pages/notes/notes-create";
 import {WeatherCard} from "../pages/weather/weather-card";
 import {NavStateService} from "../services/nav-state-service";
 import {DateService} from "../services/date-service";
+import {InformationPage} from "../information/information";
+import {SettingsPage} from "../pages/settings/settings";
 
 
 @NgModule({
   declarations: [
     MyApp, TabsPage, NewsPage, WeatherPage, NotesPage, NewsCard,
-    NewsDetailsPage, NotesCreatePage, NotesCard, WeatherCard
+    NewsDetailsPage, NotesCreatePage, NotesCard, WeatherCard, InformationPage, SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,7 @@ import {DateService} from "../services/date-service";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp, TabsPage, NewsPage, WeatherPage, NotesPage, NewsDetailsPage,
-    NotesCreatePage
+    NotesCreatePage, InformationPage, SettingsPage
   ],
   providers: [
     DateService,

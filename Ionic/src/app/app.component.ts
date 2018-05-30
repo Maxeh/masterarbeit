@@ -6,6 +6,8 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {TabsPage} from "../pages/_tabs/tabs";
 import {WeatherPage} from "../pages/weather/weather";
 import {NavStateService} from "../services/nav-state-service";
+import {SettingsPage} from "../pages/settings/settings";
+import {InformationPage} from "../information/information";
 
 @Component({
   templateUrl: 'app.html'
@@ -21,10 +23,10 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       {id: 0, icon: 'paper', title: 'News', component: MyApp},
-      {id: 1, icon: 'sunny', title: 'Wetter', component: MyApp},
+      {id: 1, icon: 'md-sunny', title: 'Wetter', component: MyApp},
       {id: 2, icon: 'create', title: 'Notizen', component: MyApp},
-      {id: 3, icon: 'settings', title: 'Einstellungen', component: WeatherPage},
-      {id: 4, icon: 'information-circle', title: 'Informationen', component: WeatherPage}
+      {id: 3, icon: 'settings', title: 'Einstellungen', component: SettingsPage},
+      {id: 4, icon: 'information-circle', title: 'Informationen', component: InformationPage}
     ];
   }
 
