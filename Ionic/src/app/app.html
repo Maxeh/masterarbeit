@@ -1,18 +1,20 @@
 <ion-menu width="200" [content]="content">
   <ion-header color="dark">
     <ion-toolbar color="dark">
-      <ion-title>Menu</ion-title>
+      <ion-title>MasterNews</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content class="menu-content">
     <ion-list>
       <button menuClose no-border ion-item *ngFor="let p of pages.slice(0,3)" (click)="openPage(p)">
-        {{p.title}}
+        <ion-icon class="menu-item-icon" [name]="p.icon"></ion-icon>
+        <span class="menu-item-title">{{p.title}}</span>
       </button>
       <hr>
       <button menuClose ion-item *ngFor="let p of pages.slice(3,5)" (click)="openPage(p)">
-        {{p.title}}
+        <ion-icon class="menu-item-icon" [name]="p.icon"></ion-icon>
+        <span class="menu-item-title">{{p.title}}</span>
       </button>
     </ion-list>
   </ion-content>

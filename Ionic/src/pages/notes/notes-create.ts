@@ -1,30 +1,17 @@
 import {Component, ViewChild} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
+import {DateService} from "../../services/date-service";
 
 @Component({
   templateUrl: 'notes-create.html'
 })
 export class NotesCreatePage {
   @ViewChild('notesTextarea') notesTextarea;
-  date = this.getDate();
+  date = null;
   mode = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  getDate() {
-    let addZero = i => (i < 10) ? (i = "0" + i) : i;
-
-    let date = new Date();
-    let day = addZero(date.getDate());
-    let month = addZero(date.getMonth() + 1);
-    let year = date.getFullYear();
-    let hours = addZero(date.getHours());
-    let minutes = addZero(date.getMinutes());
-
-    let dateString = [day, month, year].join('/');
-    dateString += (" - " + hours + ":" + minutes);
-    return dateString;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dateService: DateService) {
+    this.date = dateService.getDate();
   }
 
   ionViewDidLoad() {

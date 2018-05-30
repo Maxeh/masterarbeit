@@ -19,6 +19,7 @@ import {NotesCard} from "../pages/notes/notes-card";
 import {NotesCreatePage} from "../pages/notes/notes-create";
 import {WeatherCard} from "../pages/weather/weather-card";
 import {NavStateService} from "../services/nav-state-service";
+import {DateService} from "../services/date-service";
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {NavStateService} from "../services/nav-state-service";
     NotesCreatePage
   ],
   providers: [
+    DateService,
     NavStateService,
     StatusBar,
     SplashScreen,

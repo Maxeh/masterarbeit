@@ -23,6 +23,15 @@
   hr {
     height: 1px;
   }
+
+  .menu-item-icon {
+    position: relative;
+    top: 1px;
+  }
+
+  .menu-item-title {
+    margin-left: 10px;
+  }
 }
 
 .dialog-cancel .button-inner {

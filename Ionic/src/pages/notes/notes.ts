@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NavParams} from 'ionic-angular';
 import {Events} from 'ionic-angular';
 import {NotesCreatePage} from "./notes-create";
+import {DateService} from "../../services/date-service";
 
 @Component({
   templateUrl: 'notes.html'
@@ -9,11 +10,25 @@ import {NotesCreatePage} from "./notes-create";
 export class NotesPage {
   public notes = [];
 
-  constructor(public navParams: NavParams, public events: Events) {
+  constructor(public navParams: NavParams, public events: Events, public dateService: DateService) {
     events.unsubscribe("event:fab-notes"); // remove old event
     events.subscribe('event:fab-notes', () => {
       this.onCreateNewNoteClick();
     });
+
+    this.notes = [{
+      id: Date.now(),
+      text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor " +
+            "invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<br><br>At vero eos " +
+            "et accusam et justo duo dolores et ea rebum. 😄😁",
+      date: dateService.getDate()
+    }, {
+      id: Date.now() + 1,
+      text: "Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim " +
+            "placerat facer possim assum. <br><br>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, " +
+            "sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+      date: dateService.getDate()
+    }];
   }
 
   onCreateNewNoteClick() {
