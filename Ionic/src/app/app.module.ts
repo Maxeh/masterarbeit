@@ -32,7 +32,7 @@ import {SettingsPage} from "../pages/settings/settings";
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {scrollAssist: false, autoFocusAssist: false} ),
     SuperTabsModule.forRoot()
   ],
   bootstrap: [IonicApp],
