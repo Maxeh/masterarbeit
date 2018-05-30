@@ -4,7 +4,6 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {TabsPage} from "../pages/_tabs/tabs";
-import {WeatherPage} from "../pages/weather/weather";
 import {NavStateService} from "../services/nav-state-service";
 import {SettingsPage} from "../pages/settings/settings";
 import {InformationPage} from "../information/information";
@@ -36,11 +35,8 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      //this.statusBar.styleDefault();
-      /*this.statusBar.overlaysWebView(false);
-      this.statusBar.backgroundColorByHexString('#423f3f');*/
+      this.statusBar.styleLightContent();
+      this.statusBar.backgroundColorByHexString('#111');
       this.splashScreen.hide();
     });
   }
