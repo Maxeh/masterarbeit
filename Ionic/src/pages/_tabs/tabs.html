@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content no-bounce>
+<ion-content no-bounce style="border:none">
   <super-tabs #supertabs toolbarColor="light" toolbarBackground="dark" indicatorColor="light" [config]="{ sideMenu: 'left' }" (tabSelect)="onTabSelect($event)">
     <super-tab [root]="page1" title="News"></super-tab>
     <super-tab [root]="page2" title="Wetter"></super-tab>

@@ -6,31 +6,34 @@
   overflow-y: auto !important;
 }
 
-// bug fix: flickering of toolbar color when menu is opened
-.menu-content:before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 56px;
-  background-color: #222; // the color of the menu's toolbar
+.menu-inner {
+  background: #222 !important;
 }
 
-.menu-content .menu-content-list {
-  .item-inner, .item-block {
-    border: none !important;
+.menu-content {
+  background-color: unset; // bug fix: border-right white
+
+  .fixed-content {
+    background: #FFF;
   }
 
-  hr {
-    height: 1px;
-  }
+  .menu-content-list {
+    .item-inner, .item-block {
+      border: none !important;
+    }
 
-  .menu-item-icon {
-    position: relative;
-    top: 1px;
-  }
+    hr {
+      height: 1px;
+    }
 
-  .menu-item-title {
-    margin-left: 10px;
+    .menu-item-icon {
+      position: relative;
+      top: 1px;
+    }
+
+    .menu-item-title {
+      margin-left: 10px;
+    }
   }
 }
 
