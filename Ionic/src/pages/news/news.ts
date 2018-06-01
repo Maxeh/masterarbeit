@@ -12,9 +12,9 @@ export class NewsPage {
   constructor(private http: HttpClient, public appCtrl: App) {
     this.http.get('https://maxeh.de/masternews.php?type=news').subscribe(res => {
       let data: any = res;
-      data.articles.forEach((article) => {
+    /*  data.articles.forEach((article) => {
         article.thumbnail = article.urlToImage.replace("860_poster", "230_poster");
-      });
+      });*/
       this.articles = data.articles;
       console.log(this.articles);
     });

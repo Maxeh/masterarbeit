@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavParams} from 'ionic-angular';
+import {App, NavParams} from 'ionic-angular';
 import {Events} from 'ionic-angular';
 import {NotesCreatePage} from "./notes-create";
 import {DateService} from "../../services/date-service";
@@ -10,7 +10,7 @@ import {DateService} from "../../services/date-service";
 export class NotesPage {
   public notes = [];
 
-  constructor(public navParams: NavParams, public events: Events, public dateService: DateService) {
+  constructor(public navParams: NavParams, public events: Events, public dateService: DateService, public appCtrl: App) {
     events.unsubscribe("event:fab-notes"); // remove old event
     events.subscribe('event:fab-notes', () => {
       this.onCreateNewNoteClick();
@@ -32,7 +32,7 @@ export class NotesPage {
   }
 
   onCreateNewNoteClick() {
-    this.navParams.get('rootNavCtrl').push(NotesCreatePage, {
+    this.appCtrl.getRootNav().push(NotesCreatePage, {
       mode: "create",
       id: Date.now(), // as unique id
       noteCreated: (newNote) => this.noteCreated(newNote)
@@ -60,7 +60,7 @@ export class NotesPage {
 
   // output event of note-card
   onEditCard(note) {
-    this.navParams.get('rootNavCtrl').push(NotesCreatePage, {
+    this.appCtrl.getRootNav().push(NotesCreatePage, {
       mode: "edit",
       note: note,
       noteEdited: (editedNote) => this.noteEdited(editedNote)
