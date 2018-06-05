@@ -4,7 +4,7 @@ import {DrawerOpenButton} from "../../App"
 
 export default class SettingsScreen extends Component {
   static navigationOptions = (props) => ({
-    title: 'Reuters',
+    title: 'Einstellungen',
     headerLeft:<DrawerOpenButton {...props} />
   })
 
