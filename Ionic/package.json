@@ -1,8 +1,8 @@
 {
-  "name": "MasterNews2",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "MasterNews",
+  "version": "1.0",
+  "author": "Maximilian Ehbauer",
+  "homepage": "maxeh.de",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -43,7 +43,7 @@
     "@ionic/app-scripts": "3.1.9",
     "typescript": "~2.6.2"
   },
-  "description": "An Ionic project",
+  "description": "Ionic app for my master thesis",
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},

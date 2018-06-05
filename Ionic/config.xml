@@ -2,7 +2,7 @@
 <widget id="io.ionic.starter" version="1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>MasterNews</name>
     <description>Ionic app for my master thesis</description>
-    <author email="ehbauermax@yahoo.de">Max Ehbauer</author>
+    <author email="ehbauermax@yahoo.de">Maximilian Ehbauer</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
