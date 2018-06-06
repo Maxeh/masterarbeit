@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {TouchableOpacity, Platform, StatusBar, Text, View, ScrollView} from 'react-native';
-import {Icon} from 'native-base';
+import {Icon, Fab} from 'native-base';
 import {StackNavigator, DrawerNavigator, TabNavigator, DrawerItems} from 'react-navigation';
 import NewsScreen from './src/screens/newsScreen';
 import WeatherScreen from './src/screens/weatherScreen';
@@ -26,7 +26,7 @@ const MainTabs = TabNavigator({
     labelStyle: {color: Platform.select({ios: null, android: '#fff'})},
     indicatorStyle: {backgroundColor: '#fff'},
   }
-})
+});
 
 // NavigationOptions for mainTabs - cannot be defined inside of TabNavigator
 const TabNavigationOptions = (props) => ({
@@ -104,10 +104,26 @@ const ModalStack = StackNavigator({
 })
 
 export default class Navigation extends Component {
+  constructor() {
+    super()
+    this.state = {
+      fabShow: false,
+    }
+  }
+
+  setFabShow = (fabShow) => {
+    this.setState({fabShow})
+  }
+
   render() {
+    const screenProps = {
+      fabShow: this.state.fabShow,
+      setFabShow: (show) => this.setFabShow(show)
+    }
+
     return ([
       <StatusBar key='statusbar' backgroundColor="#111" barStyle="light-content"/>,
-      <ModalStack key='navigation'/>
+      <ModalStack key='navigation' screenProps={screenProps}/>
     ])
   }
 }
