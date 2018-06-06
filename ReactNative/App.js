@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, Platform, StatusBar, Text, View, ScrollView} from 'react-native';
-import {Icon, Fab} from 'native-base';
-import {StackNavigator, DrawerNavigator, TabNavigator, DrawerItems} from 'react-navigation';
+import {TouchableOpacity, Image, TouchableWithoutFeedback, Platform, StatusBar, Text, View, ScrollView} from 'react-native';
+import {Icon} from 'native-base';
+import {NavigationActions, StackNavigator, DrawerNavigator, TabNavigator, DrawerItems} from 'react-navigation';
 import NewsScreen from './src/screens/newsScreen';
 import WeatherScreen from './src/screens/weatherScreen';
 import NotesScreen from './src/screens/notesScreen';
 import NewsDetailScreen from "./src/screens/newsDetailScreen"
 import NotesDetailScreen from "./src/screens/notesDetailScreen"
 import SettingsScreen from "./src/screens/settingsScreen"
+import InfoScreen from "./src/screens/infoScreen"
+import CustomDrawer from "./src/screens/_drawer"
 
 // Tabs on main screen
 const MainTabs = TabNavigator({
@@ -38,7 +40,7 @@ const TabNavigationOptions = (props) => ({
 // DrawerOpenButton is exported, so that other screens can use it
 export const DrawerOpenButton = (props) => (
   <TouchableOpacity onPress={() => props.navigation.navigate('DrawerOpen')}>
-    <Icon name='menu' style={{padding: 10, paddingLeft: 15, color: "#fff"}}/>
+    <Icon name="menu" style={{padding:10, paddingLeft:15, color: '#fff'}} />
   </TouchableOpacity>
 )
 
@@ -46,7 +48,9 @@ export const DrawerOpenButton = (props) => (
 const Stack = StackNavigator({
   root: {screen: MainTabs, navigationOptions: TabNavigationOptions},
   newsDetails: {screen: NewsDetailScreen},
-  notesDetails: {screen: NotesDetailScreen}
+  notesDetails: {screen: NotesDetailScreen},
+  settings: {screen: SettingsScreen},
+  info: {screen: InfoScreen}
 }, {
   navigationOptions: {
     headerStyle: {backgroundColor: '#222'},
@@ -74,31 +78,35 @@ const Stack_Setting = StackNavigator({
   }
 })
 
-// Create Drawer with custom design
-const CustomDrawerContentComponent = (props) => (
-  <ScrollView>
-    <View style={{justifyContent: 'center', height: 56, backgroundColor: '#222', marginBottom: -5}}>
-      <Text style={{fontSize: 20, color: '#fff', marginLeft: 15}}>MasterNews</Text>
-    </View>
-    <View style={{flex: 1}} forceInset={{top: 'always', horizontal: 'never'}}>
-      <DrawerItems activeTintColor="#222" {...props} />
-    </View>
-  </ScrollView>
-);
+// Third StackNavigator for info
+const Stack_Info = StackNavigator({
+  root: {screen: InfoScreen}
+}, {
+  navigationOptions: {
+    headerStyle: {backgroundColor: '#222'},
+    headerTitleStyle: {color: 'white'},
+    headerTintColor: 'white',
+    headerBackTitle: null,
+    drawerIcon: ({tintColor}) => (
+      <Icon name="information-circle" />
+    )
+  }
+})
+
+
 
 // Create DrawerNavigator which has the StackNavigators that were created above as children
 const Drawer = DrawerNavigator({
   main: {screen: Stack},
-  setting: {screen: Stack_Setting}
 }, {
-  backBehavior: 'screen',
-  contentComponent: CustomDrawerContentComponent
+  drawerWidth: 280,
+  contentComponent: props => <CustomDrawer {...props} />
 })
 
 //Modal Stack (root)
 const ModalStack = StackNavigator({
   // logout:{screen:LoginScreen},
-  login: {screen: Drawer},
+  drawer: {screen: Drawer},
 }, {
   headerMode: 'none',
 })
@@ -127,3 +135,5 @@ export default class Navigation extends Component {
     ])
   }
 }
+
+
