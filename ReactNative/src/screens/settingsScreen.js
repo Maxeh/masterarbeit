@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {Container, Content, ListItem, CheckBox, Radio, Right} from 'native-base';
+import {Container, Content, ListItem, CheckBox, Radio} from 'native-base';
 import {Text, View} from 'react-native';
-import {DrawerOpenButton} from "../../App"
 
 export default class SettingsScreen extends Component {
   static navigationOptions = (props) => ({

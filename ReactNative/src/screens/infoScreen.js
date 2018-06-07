@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Text} from 'react-native';
 import {Container, Content, Card, CardItem} from 'native-base';
-import {DrawerOpenButton} from "../../App"
 
 export default class InfoScreen extends Component {
   static navigationOptions = (props) => ({
