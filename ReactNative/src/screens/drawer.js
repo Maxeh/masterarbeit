@@ -95,7 +95,7 @@ export default class CustomDrawer extends Component {
           <TouchableWithoutFeedback
             onPressIn={() => this.setState({settingsClicked: true})}
             onPressOut={() => this.setState({settingsClicked: false})}
-            onPress={() => this.props.navigation.navigate("settings")}
+            onPress={() => this.props.navigation.navigate("settingsScreen")}
           >
             <View style={this.state.settingsClicked ? {backgroundColor: '#DDD'} : null}>
               <View style={styles.buttonRow}>
@@ -110,7 +110,7 @@ export default class CustomDrawer extends Component {
           <TouchableWithoutFeedback
             onPressIn={() => this.setState({infoClicked: true})}
             onPressOut={() => this.setState({infoClicked: false})}
-            onPress={() => this.props.navigation.navigate("info")}
+            onPress={() => this.props.navigation.navigate("infoScreen")}
           >
             <View style={this.state.infoClicked ? {backgroundColor: '#DDD'} : null}>
               <View style={styles.buttonRow}>

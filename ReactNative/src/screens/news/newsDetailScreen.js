@@ -26,7 +26,6 @@ export default class NewsDetailScreen extends Component {
   }
 }
 
-
 const styles = StyleSheet.create({
   image: {
     width: "100%",
