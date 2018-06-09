@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, TouchableWithoutFeedback, Text, View, ScrollView} from 'react-native';
+import {TouchableWithoutFeedback, Text, View, ScrollView} from 'react-native';
 import {Icon} from 'native-base';
 
-// Create Drawer with custom design
 export default class CustomDrawer extends Component {
 
   constructor() {

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {TouchableOpacity, StatusBar} from 'react-native';
 import {StackNavigator, DrawerNavigator, TabNavigator} from 'react-navigation';
 import getSlideFromRightTransition from 'react-navigation-slide-from-right-transition';
+import SplashScreen from 'react-native-splash-screen'
 import {Icon} from 'native-base';
 import NewsScreen from './src/screens/news/newsScreen';
 import WeatherScreen from './src/screens/weather/weatherScreen';
@@ -79,6 +80,11 @@ const RootNavigator = StackNavigator({
 
 // App starts with this class
 export default class Navigation extends Component {
+  constructor() {
+    super();
+    SplashScreen.hide();
+  }
+
   render() {
     return ([
       <StatusBar key='statusbar' backgroundColor="#111" barStyle="light-content"/>,

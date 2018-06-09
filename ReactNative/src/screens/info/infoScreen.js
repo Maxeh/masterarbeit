@@ -23,7 +23,7 @@ export default class InfoScreen extends Component {
           <Card>
             <CardItem>
               <Text style={{color: '#000'}}>
-                Version 1.0, Juni 2018
+                App Variante 5
               </Text>
             </CardItem>
           </Card>
