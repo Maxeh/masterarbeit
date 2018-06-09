@@ -1,28 +1,26 @@
 import React, {PureComponent} from 'react';
-import {StyleSheet, FlatList, Image, Text, View, ActivityIndicator, TouchableWithoutFeedback} from 'react-native';
-import {Container, Content, Card, CardItem} from 'native-base';
+import {StyleSheet, FlatList, Image, Text, View, ActivityIndicator, TouchableNativeFeedback} from 'react-native';
+import {Card} from 'native-base';
 
 
 class NewsCard extends PureComponent {
-  _onPress = () => {
-    this.props.onPressItem(this.props.id);
+  onPress = () => {
+    this.props.onPressItem(this.props.item);
   };
 
   render() {
     return (
       <View style={{marginLeft: 7, marginRight: 7, marginBottom: -5}}>
-
-        <TouchableWithoutFeedback
-          onPress={this._onPress}>
+        <TouchableNativeFeedback onPress={this.onPress}>
           <Card>
-              <View style={{flex: 1, flexDirection: "row"}}>
-                <Image style={{aspectRatio:1.4, width: 100, alignSelf:"center"}} source={{uri: this.props.urlToImage}} />
-                <Text style={{flex: 1, padding: 10, alignSelf:"center", color:'#111'}}>
-                  {this.props.title}
-                </Text>
-              </View>
+            <View style={{flex: 1, flexDirection: "row"}}>
+              <Image style={{aspectRatio: 1.4, width: 100, alignSelf: "center"}} source={{uri: this.props.item.urlToImage}}/>
+              <Text style={{flex: 1, padding: 10, alignSelf: "center", color: '#111'}}>
+                {this.props.item.title}
+              </Text>
+            </View>
           </Card>
-        </TouchableWithoutFeedback>
+        </TouchableNativeFeedback>
       </View>
     );
   }
@@ -51,19 +49,17 @@ export default class NewsScreen extends PureComponent {
       .catch((err) => console.log(err));
   }
 
-  _onPressItem = (id) => {
-    console.log(id);
+  onPressItem = (item) => {
+    //change state news to articles
+    //change so that whole article is passed
+    console.log(item);
+    this.props.navigation.navigate("NewsDetailScreen", {item:item});
   };
 
   _keyExtractor = (item, index) => index.toString();
 
-  _renderItem = ({item, index}) => (
-    <NewsCard
-      id={index}
-      urlToImage={item.urlToImage}
-      onPressItem={this._onPressItem}
-      title={item.title}
-    />
+  _renderItem = ({item}) => (
+    <NewsCard item={item} onPressItem={this.onPressItem} />
   );
 
   renderContent = () => {
@@ -74,6 +70,7 @@ export default class NewsScreen extends PureComponent {
           extraData={this.state}
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
+          contentContainerStyle={{paddingBottom: 8}}
         />
       )
     } else return (

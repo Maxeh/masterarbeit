@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, Image, TouchableWithoutFeedback, Platform, StatusBar, Text, View, ScrollView} from 'react-native';
+import {TouchableOpacity, Platform, StatusBar} from 'react-native';
 import {Icon} from 'native-base';
 import {NavigationActions, StackNavigator, DrawerNavigator, TabNavigator, DrawerItems} from 'react-navigation';
+import getSlideFromRightTransition from 'react-navigation-slide-from-right-transition';
 import NewsScreen from './src/screens/newsScreen';
 import WeatherScreen from './src/screens/weatherScreen';
 import NotesScreen from './src/screens/notesScreen';
@@ -40,14 +41,14 @@ const TabNavigationOptions = (props) => ({
 // DrawerOpenButton is exported, so that other screens can use it
 export const DrawerOpenButton = (props) => (
   <TouchableOpacity onPress={() => props.navigation.navigate('DrawerOpen')}>
-    <Icon name="menu" style={{padding:10, paddingLeft:15, color: '#fff'}} />
+    <Icon name="menu" style={{padding: 10, paddingLeft: 15, color: '#fff'}}/>
   </TouchableOpacity>
 )
 
 // First StackNavigator which has the mainTabs as root
 const Stack = StackNavigator({
   root: {screen: MainTabs, navigationOptions: TabNavigationOptions},
-  newsDetails: {screen: NewsDetailScreen},
+  NewsDetailScreen: {screen: NewsDetailScreen},
   notesDetails: {screen: NotesDetailScreen},
   settings: {screen: SettingsScreen},
   info: {screen: InfoScreen}
@@ -58,9 +59,10 @@ const Stack = StackNavigator({
     headerTintColor: 'white',
     headerBackTitle: null,
     drawerIcon: ({tintColor}) => (
-      <Icon name="home" />
+      <Icon name="home"/>
     )
-  }
+  },
+  transitionConfig: getSlideFromRightTransition
 })
 
 // Second StackNavigator for settings
@@ -73,7 +75,7 @@ const Stack_Setting = StackNavigator({
     headerTintColor: 'white',
     headerBackTitle: null,
     drawerIcon: ({tintColor}) => (
-      <Icon name="settings" />
+      <Icon name="settings"/>
     )
   }
 })
@@ -88,11 +90,10 @@ const Stack_Info = StackNavigator({
     headerTintColor: 'white',
     headerBackTitle: null,
     drawerIcon: ({tintColor}) => (
-      <Icon name="information-circle" />
+      <Icon name="information-circle"/>
     )
   }
 })
-
 
 
 // Create DrawerNavigator which has the StackNavigators that were created above as children
@@ -109,6 +110,7 @@ const ModalStack = StackNavigator({
   drawer: {screen: Drawer},
 }, {
   headerMode: 'none',
+  transitionConfig: getSlideFromRightTransition
 })
 
 export default class Navigation extends Component {
