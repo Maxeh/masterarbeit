@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Container, Content, ListItem, CheckBox, Radio} from 'native-base';
-import {Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 export default class SettingsScreen extends Component {
   static navigationOptions = (props) => ({
@@ -57,8 +57,8 @@ export default class SettingsScreen extends Component {
     return (
       <Container>
         <Content>
-          <View style={{borderBottomWidth: 1, borderBottomColor: "#ddd", padding: 15}}>
-            <Text style={{fontSize: 22, color: "#000"}}>Nachrichten Quellen</Text>
+          <View style={styles.textCaptionView}>
+            <Text style={styles.textCaption}>Nachrichten Quellen</Text>
           </View>
 
           <ListItem onPress={() => this.setState({checkboxReuters: !this.state.checkboxReuters})}>
@@ -66,8 +66,8 @@ export default class SettingsScreen extends Component {
               checked={this.state.checkboxReuters} color="#222"
               onPress={() => this.setState({checkboxReuters: !this.state.checkboxReuters})}
             />
-            <View style={{marginLeft: 20}}>
-              <Text style={{color: "#000"}}>Reuters</Text>
+            <View style={styles.checkBoxText}>
+              <Text style={styles.text}>Reuters</Text>
             </View>
           </ListItem>
 
@@ -76,8 +76,8 @@ export default class SettingsScreen extends Component {
               checked={this.state.checkboxSpiegel} color="#222"
               onPress={() => this.setState({checkboxSpiegel: !this.state.checkboxSpiegel})}
             />
-            <View style={{marginLeft: 20}}>
-              <Text style={{color: "#000"}}>Spiegel Online</Text>
+            <View style={styles.checkBoxText}>
+              <Text style={styles.text}>Spiegel Online</Text>
             </View>
           </ListItem>
 
@@ -86,36 +86,38 @@ export default class SettingsScreen extends Component {
               checked={this.state.checkboxFocus} color="#222"
               onPress={() => this.setState({checkboxFocus: !this.state.checkboxFocus})}
             />
-            <View style={{marginLeft: 20}}>
-              <Text style={{color: "#000"}}>Focus Online</Text>
+            <View style={styles.checkBoxText}>
+              <Text style={styles.text}>Focus Online</Text>
             </View>
           </ListItem>
 
-          <View style={{borderBottomWidth: 1, borderColor: '#ddd'}}>
-            <ListItem style={{borderBottomWidth: 0}}
-                      onPress={() => this.setState({checkboxHandelsblatt: !this.state.checkboxHandelsblatt})}>
+          <View style={styles.checkBoxLast}>
+            <ListItem
+              style={{borderBottomWidth: 0}}
+              onPress={() => this.setState({checkboxHandelsblatt: !this.state.checkboxHandelsblatt})}
+            >
               <CheckBox
                 checked={this.state.checkboxHandelsblatt} color="#222"
                 onPress={() => this.setState({checkboxHandelsblatt: !this.state.checkboxHandelsblatt})}
               />
-              <View style={{marginLeft: 20}}>
-                <Text style={{color: "#000"}}>Handelsblatt</Text>
+              <View style={styles.checkBoxText}>
+                <Text style={styles.text}>Handelsblatt</Text>
               </View>
             </ListItem>
           </View>
 
-          <View style={{borderBottomWidth: 1, borderBottomColor: "#ddd", padding: 15}}>
-            <Text style={{fontSize: 22, color: "#000"}}>Wetter Quellen</Text>
+          <View style={styles.textCaptionView}>
+            <Text style={styles.textCaption}>Wetter Quellen</Text>
           </View>
 
           <ListItem
             style={{justifyContent: "space-between"}}
             onPress={() => this.setRadioButton("radioOpenWeatherMap")}
           >
-            <Text style={{color: '#000'}}>OpenWeatherMap</Text>
+            <Text style={styles.text}>OpenWeatherMap</Text>
             <Radio
               onPress={() => this.setRadioButton("radioOpenWeatherMap")}
-              style={{marginRight: 10}} name="radioGroup" selectedColor='#222' selected={this.state.radioOpenWeatherMap}
+              style={styles.radioText} name="radioGroup" selectedColor='#222' selected={this.state.radioOpenWeatherMap}
             />
           </ListItem>
 
@@ -123,10 +125,10 @@ export default class SettingsScreen extends Component {
             style={{justifyContent: "space-between"}}
             onPress={() => this.setRadioButton("radioOpenWetterOnline")}
           >
-            <Text style={{color: '#000'}}>Wetter Online</Text>
+            <Text style={styles.text}>Wetter Online</Text>
             <Radio
               onPress={() => this.setRadioButton("radioOpenWetterOnline")}
-              style={{marginRight: 10}} name="radioGroup" selectedColor='#222' selected={this.state.radioWetterOnline}
+              style={styles.radioText} name="radioGroup" selectedColor='#222' selected={this.state.radioWetterOnline}
             />
           </ListItem>
 
@@ -134,10 +136,10 @@ export default class SettingsScreen extends Component {
             style={{justifyContent: "space-between"}}
             onPress={() => this.setRadioButton("radioOpenWetter24")}
           >
-            <Text style={{color: '#000'}}>Wetter24</Text>
+            <Text style={styles.text}>Wetter24</Text>
             <Radio
               onPress={() => this.setRadioButton("radioOpenWetter24")}
-              style={{marginRight: 10}} selectedColor='#222' selected={this.state.radioWetter24}
+              style={styles.radioText} selectedColor='#222' selected={this.state.radioWetter24}
             />
           </ListItem>
         </Content>
@@ -145,3 +147,28 @@ export default class SettingsScreen extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  textCaptionView: {
+    borderBottomWidth: 1,
+    borderBottomColor: "#ddd",
+    padding: 15
+  },
+  textCaption: {
+    color: '#111',
+    fontSize: 22
+  },
+  text: {
+    color: '#111'
+  },
+  checkBoxText: {
+    marginLeft: 20,
+  },
+  checkBoxLast: {
+    borderBottomWidth: 1,
+    borderColor: '#ddd'
+  },
+  radioText: {
+    marginRight: 10
+  }
+});

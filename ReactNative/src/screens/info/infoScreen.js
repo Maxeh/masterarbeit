@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 import {Container, Content, Card, CardItem} from 'native-base';
 
 export default class InfoScreen extends Component {
@@ -11,10 +11,10 @@ export default class InfoScreen extends Component {
   render() {
     return (
       <Container>
-        <Content style={{padding: 5, paddingTop: 3}}>
+        <Content style={styles.content}>
           <Card>
             <CardItem>
-              <Text style={{color: '#000'}}>
+              <Text style={styles.text}>
                 Die App wurde für die Masterarbeit von Maximilian Ehbauer erstellt.
                 Die App hilft dabei verschiedene Entwicklungsmethoden zur Erstellung mobiler Apps zu bewerten.
               </Text>
@@ -22,7 +22,7 @@ export default class InfoScreen extends Component {
           </Card>
           <Card>
             <CardItem>
-              <Text style={{color: '#000'}}>
+              <Text style={styles.text}>
                 App Variante 5
               </Text>
             </CardItem>
@@ -32,3 +32,13 @@ export default class InfoScreen extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  content: {
+    padding: 5,
+    paddingTop: 3
+  },
+  text: {
+    color: '#111'
+  },
+});

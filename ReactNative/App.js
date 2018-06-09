@@ -19,6 +19,7 @@ const MainTabs = TabNavigator({
   weatherScreen: {screen: WeatherScreen},
   notesScreen: {screen: NotesScreen},
 }, {
+  lazy: false,
   tabBarOptions: {
     activeTintColor: '#222',
     style: {

@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react';
 import {StyleSheet, FlatList, View, ActivityIndicator} from 'react-native';
-import SplashScreen from 'react-native-splash-screen'
 import NewsCard from "./newsCard";
 
 export default class NewsScreen extends PureComponent {
