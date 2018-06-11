@@ -38,7 +38,7 @@ export default class NewsCard extends PureComponent {
         <Card style={styles.card}>
           <View style={styles.cardHeader}>
             <Text style={styles.cardHeaderText}>{this.props.city.city.name}</Text>
-            <Button transparent onPress={this.props.onPressItem}>
+            <Button transparent onPress={() => this.props.onCardDeleteCityClick(this.props.city.city.id)}>
               <Icon name='md-trash' style={{color: "#222"}}/>
             </Button>
           </View>

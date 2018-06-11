@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
-import {TextInput, Alert, StyleSheet, Text, View, FlatList} from 'react-native';
-import {Button, Fab, Icon} from 'native-base';
+import {TextInput, Text, View, FlatList} from 'react-native';
+import {ConfirmDialog} from 'react-native-simple-dialogs';
 import ActionButton from 'react-native-action-button';
-import Dialog from "react-native-dialog";
 import WeatherCard from "./weatherCard";
-
-import { ConfirmDialog } from 'react-native-simple-dialogs';
 
 export default class WeatherScreen extends Component {
   static navigationOptions = (props) => ({
@@ -14,9 +11,11 @@ export default class WeatherScreen extends Component {
 
   constructor() {
     super();
+    this.cityInputRef = null;
     this.state = {
-      startCities: ["Bocholt", "Berlin"],
+      startCities: ["Bocholt"],
       cities: [],
+      deleteCityId: null,
       deleteDialogVisible: false,
       addDialogVisible: false,
       cityInput: "",
@@ -41,92 +40,99 @@ export default class WeatherScreen extends Component {
       .catch((err) => console.log(err));
   }
 
-  onPressItem = (id) => {
-    this.setState({deleteDialogVisible: true})
-  }
-
   onAddCityClick = () => {
-    this.setState({addDialogVisible: true})
+    this.setState({addDialogVisible: true}, () => {
+      setTimeout(() => {
+        if (this.cityInputRef)
+          this.cityInputRef.focus();
+      }, 120)
+    })
   }
 
-  renderItem = ({item}) => <WeatherCard city={item} onPressItem={this.onPressItem}/>;
+  onCardDeleteCityClick = (id) => {
+    this.setState({deleteCityId: id, deleteDialogVisible: true})
+  }
+
+  onDeleteCityClick = () => {
+    if (this.state.deleteCityId) {
+      this.state.cities = this.state.cities.filter((city) => city.city.id !== this.state.deleteCityId);
+      this.setState({cities: this.state.cities, deleteCityId: null, deleteDialogVisible: false});
+    }
+  }
+
+  renderItem = ({item}) => <WeatherCard city={item} onCardDeleteCityClick={this.onCardDeleteCityClick}/>;
 
   keyExtractor = (item, index) => index.toString();
 
-  renderContent = () => {
-    if (this.state.cities.length > 0) {
-      return (
-        <View style={{flex:1}}>
-          <FlatList
-            data={this.state.cities}
-            extraData={this.state}
-            keyExtractor={this.keyExtractor}
-            renderItem={this.renderItem}
-            contentContainerStyle={{paddingBottom: 80}}
-          />
+  render = () => {
+    return (
+      <View style={{flex: 1}}>
+        {this.state.cities.length > 0 &&
+        (<FlatList
+          data={this.state.cities}
+          extraData={this.state}
+          keyExtractor={this.keyExtractor}
+          renderItem={this.renderItem}
+          contentContainerStyle={{paddingBottom: 80}}
+        />)}
 
-          <ConfirmDialog
-            titleStyle={{color: "#222"}}
-            contentStyle={{padding:0}}
-            title="Wirklich löschen?"
-            visible={this.state.deleteDialogVisible}
-            onTouchOutside={() => this.setState({deleteDialogVisible: false})}
-            negativeButton={{
-              title: "Abbrechen",
-              titleStyle: {color: "#222"},
-              onPress: () => alert("No touched!")
-            }}
-            positiveButton={{
-              title: "Löschen",
-              titleStyle: {color: "#f53d3d"},
-              onPress: () => this.setState({deleteDialogVisible: false})
-            }}>
-          </ConfirmDialog>
+        {this.state.cities.length === 0 &&
+        (<Text>Noch keine Städte hinzugefügt</Text>)}
 
-          <ConfirmDialog
-            titleStyle={{color: "#222", marginTop: 15, marginBottom: -25}}
-            contentStyle={{padding:0}}
-            title="Name der Stadt"
-            visible={this.state.addDialogVisible}
-            onTouchOutside={() => this.setState({addDialogVisible: false})}
-            negativeButton={{
-              title: "Abbrechen",
-              titleStyle: {color: "#222"},
-              onPress: () => alert("No touched!")
-            }}
-            positiveButton={{
-              title: "Hinzufügen",
-              titleStyle: {color: "#222"},
-              onPress: () => {
-                if (this.state.cityInput !== "") {
-                  this.cityAdd(this.state.cityInput);
-                  this.setState({cityInput: "", addDialogVisible: false})
-                }
+        <ConfirmDialog
+          titleStyle={{color: "#222"}}
+          contentStyle={{padding: 0}}
+          title="Wirklich löschen?"
+          visible={this.state.deleteDialogVisible}
+          onTouchOutside={() => this.setState({deleteDialogVisible: false})}
+          negativeButton={{
+            title: "Abbrechen",
+            titleStyle: {color: "#222"},
+            onPress: () => this.setState({deleteDialogVisible: false})
+          }}
+          positiveButton={{
+            title: "Löschen",
+            titleStyle: {color: "#f53d3d"},
+            onPress: () => this.onDeleteCityClick()
+          }}>
+        </ConfirmDialog>
+
+        <ConfirmDialog
+          titleStyle={{color: "#222", marginTop: 15, marginBottom: -25}}
+          contentStyle={{padding: 0}}
+          title="Name der Stadt"
+          visible={this.state.addDialogVisible}
+          onTouchOutside={() => this.setState({cityInput: "", addDialogVisible: false})}
+          negativeButton={{
+            title: "Abbrechen",
+            titleStyle: {color: "#222"},
+            onPress: () => this.setState({cityInput: "", addDialogVisible: false})
+          }}
+          positiveButton={{
+            title: "Hinzufügen",
+            titleStyle: {color: "#222"},
+            onPress: () => {
+              if (this.state.cityInput !== "") {
+                this.cityAdd(this.state.cityInput);
+                this.setState({cityInput: "", addDialogVisible: false})
               }
-            }}
-            >
-            <View style={{padding: 12, paddingLeft: 20}}>
-              <TextInput onChangeText={(cityInput) => this.setState({cityInput})}
-                         value={this.state.cityInput} autoFocus={true}/>
-            </View>
-          </ConfirmDialog>
+            }
+          }}
+        >
+          <View style={{padding: 12, paddingLeft: 20}}>
+            <TextInput
+              ref={(ref) => this.cityInputRef = ref}
+              onChangeText={(cityInput) => this.setState({cityInput})}
+              value={this.state.cityInput}
+            />
+          </View>
+        </ConfirmDialog>
 
-          <ActionButton onPress={this.onAddCityClick} offsetX={15} offsetY={15} fixNativeFeedbackRadius={true} buttonColor="#222">
-          </ActionButton>
-        </View>
-      )
-    } else return (
-      <View>
-        <Text>Noch keine Städte hinzugefügt</Text>
+        <ActionButton
+          onPress={this.onAddCityClick} offsetX={15} offsetY={15}
+          fixNativeFeedbackRadius={true} buttonColor="#222"
+        />
       </View>
     )
   }
-
-  render = () => this.renderContent();
 }
-
-const styles = StyleSheet.create({
-  fabStyle: {
-    backgroundColor: '#222'
-  }
-});
