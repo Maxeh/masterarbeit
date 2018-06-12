@@ -117,7 +117,8 @@ export default class SettingsScreen extends Component {
             <Text style={styles.text}>OpenWeatherMap</Text>
             <Radio
               onPress={() => this.setRadioButton("radioOpenWeatherMap")}
-              style={styles.radioText} name="radioGroup" selectedColor='#222' selected={this.state.radioOpenWeatherMap}
+              style={styles.radioText} name="radioGroup" selectedColor='#222'
+              selected={this.state.radioOpenWeatherMap}
             />
           </ListItem>
 
@@ -128,7 +129,8 @@ export default class SettingsScreen extends Component {
             <Text style={styles.text}>Wetter Online</Text>
             <Radio
               onPress={() => this.setRadioButton("radioOpenWetterOnline")}
-              style={styles.radioText} name="radioGroup" selectedColor='#222' selected={this.state.radioWetterOnline}
+              style={styles.radioText} name="radioGroup" selectedColor='#222'
+              selected={this.state.radioWetterOnline}
             />
           </ListItem>
 
@@ -139,7 +141,8 @@ export default class SettingsScreen extends Component {
             <Text style={styles.text}>Wetter24</Text>
             <Radio
               onPress={() => this.setRadioButton("radioOpenWetter24")}
-              style={styles.radioText} selectedColor='#222' selected={this.state.radioWetter24}
+              style={styles.radioText} selectedColor='#222'
+              selected={this.state.radioWetter24}
             />
           </ListItem>
         </Content>
