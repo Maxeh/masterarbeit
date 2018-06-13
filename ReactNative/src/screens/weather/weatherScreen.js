@@ -121,6 +121,8 @@ export default class WeatherScreen extends Component {
         >
           <View style={{padding: 12, paddingLeft: 20}}>
             <TextInput
+              underlineColorAndroid="transparent"
+              style={{borderBottomWidth:2, paddingBottom:2, paddingLeft:0, marginLeft:6, marginRight:4}}
               ref={(ref) => this.cityInputRef = ref}
               onChangeText={(cityInput) => this.setState({cityInput})}
               value={this.state.cityInput}

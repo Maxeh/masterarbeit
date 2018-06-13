@@ -25,7 +25,7 @@ export default class NotesScreen extends Component {
   }
 
   onAddNoteClick = () => {
-    this.props.navigation.navigate("notesDetailScreen", {});
+    this.props.navigation.navigate("notesDetailScreen", {type: "add"});
 
     //purecomponent?
   }
