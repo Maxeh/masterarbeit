@@ -1,8 +1,8 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {StyleSheet, FlatList, View, ActivityIndicator} from 'react-native';
 import NewsCard from "./newsCard";
 
-export default class NewsScreen extends PureComponent {
+export default class NewsScreen extends Component {
   static navigationOptions = (props) => ({
     title: 'News',
   })

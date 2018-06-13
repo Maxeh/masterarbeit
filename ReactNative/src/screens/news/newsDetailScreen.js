@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   cardContentText: {
-    color: "#111",
+    color: "#222",
     lineHeight: 20,
   }
 });

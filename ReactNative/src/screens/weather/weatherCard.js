@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {StyleSheet, Image, Text, View} from 'react-native';
 import {Card, Button, Icon} from 'native-base';
 
@@ -14,7 +14,7 @@ const IMAGES = {
   "50d": require('../../assets/weather/50d.png'), "50n": require('../../assets/weather/50n.png'),
 }
 
-export default class NewsCard extends PureComponent {
+export default class NewsCard extends Component {
 
   renderWeatherCardItems = () => {
     return this.props.city.list.slice(0, 6).map((item, index) => {
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingLeft: 15,
     fontSize: 18,
-    color: "#111"
+    color: "#222"
   },
   divider: {
     height: 1,
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   cardContentText: {
-    color: "#111",
+    color: "#222",
   },
   cardImage: {
     aspectRatio: 1.4,
@@ -97,6 +97,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     alignSelf: "center",
-    color: '#111'
+    color: '#222'
   }
 });

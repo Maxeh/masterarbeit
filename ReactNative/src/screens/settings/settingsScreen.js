@@ -158,11 +158,11 @@ const styles = StyleSheet.create({
     padding: 15
   },
   textCaption: {
-    color: '#111',
+    color: '#222',
     fontSize: 22
   },
   text: {
-    color: '#111'
+    color: '#222'
   },
   checkBoxText: {
     marginLeft: 20,

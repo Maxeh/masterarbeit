@@ -39,6 +39,6 @@ const styles = StyleSheet.create({
     paddingTop: 3
   },
   text: {
-    color: '#111'
+    color: '#222'
   },
 });
