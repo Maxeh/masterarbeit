@@ -35,7 +35,7 @@ export class WeatherPage {
         },
         {
           text: 'Hinzufügen',
-          cssClass: 'dialog-confirm',
+          cssClass: 'dialog-cancel',
           handler: data => {
             this.cityAdd(data.city);
           }

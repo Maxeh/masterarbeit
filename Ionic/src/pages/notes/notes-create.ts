@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {MenuController, NavController, NavParams} from 'ionic-angular';
 import {DateService} from "../../services/date-service";
 
 @Component({
@@ -10,7 +10,10 @@ export class NotesCreatePage {
   date = null;
   mode = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dateService: DateService) {
+  constructor(
+    public navCtrl: NavController, public navParams: NavParams,
+    public dateService: DateService, public menu: MenuController
+  ) {
     this.date = dateService.getDate();
   }
 
@@ -27,9 +30,14 @@ export class NotesCreatePage {
   }
 
   ionViewDidEnter() {
+    this.menu.swipeEnable(false);
     setTimeout(() => {
       this.notesTextarea.setFocus();
     }, 1);
+  }
+
+  ionViewWillLeave() {
+    this.menu.swipeEnable(true);
   }
 
   onCreateNoteClick() {

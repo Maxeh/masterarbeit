@@ -2,9 +2,9 @@ import {Component} from '@angular/core';
 import {MenuController} from "ionic-angular";
 
 @Component({
-  templateUrl: 'settings.html'
+  templateUrl: 'information.html'
 })
-export class SettingsPage {
+export class InformationPage {
 
   constructor(public menu: MenuController) {}
 

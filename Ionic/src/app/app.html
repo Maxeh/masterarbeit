@@ -7,12 +7,12 @@
 
   <ion-content class="menu-content">
     <ion-list class="menu-content-list">
-      <button menuClose no-border ion-item *ngFor="let p of pages.slice(0,3)" (click)="openPage(p)">
+      <button class="menu-item-button" menuClose no-border ion-item *ngFor="let p of pages.slice(0,3)" (click)="openPage(p)">
         <ion-icon class="menu-item-icon" [name]="p.icon"></ion-icon>
         <span class="menu-item-title">{{p.title}}</span>
       </button>
       <hr>
-      <button menuClose ion-item *ngFor="let p of pages.slice(3,5)" (click)="openPage(p)">
+      <button class="menu-item-button" menuClose ion-item *ngFor="let p of pages.slice(3,5)" (click)="openPage(p)">
         <ion-icon class="menu-item-icon" [name]="p.icon"></ion-icon>
         <span class="menu-item-title">{{p.title}}</span>
       </button>

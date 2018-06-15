@@ -18,9 +18,8 @@ import {NewsDetailsPage} from "../pages/news/news-details";
 import {NotesCard} from "../pages/notes/notes-card";
 import {NotesCreatePage} from "../pages/notes/notes-create";
 import {WeatherCard} from "../pages/weather/weather-card";
-import {NavStateService} from "../services/nav-state-service";
 import {DateService} from "../services/date-service";
-import {InformationPage} from "../information/information";
+import {InformationPage} from "../pages/information/information";
 import {SettingsPage} from "../pages/settings/settings";
 
 
@@ -42,7 +41,6 @@ import {SettingsPage} from "../pages/settings/settings";
   ],
   providers: [
     DateService,
-    NavStateService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

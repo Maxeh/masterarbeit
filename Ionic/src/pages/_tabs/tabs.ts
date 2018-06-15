@@ -4,7 +4,6 @@ import {Events} from 'ionic-angular';
 import {NewsPage} from "../news/news";
 import {WeatherPage} from "../weather/weather";
 import {NotesPage} from "../notes/notes";
-import {NavStateService} from "../../services/nav-state-service";
 
 @Component({
   selector: 'page-home',
@@ -18,7 +17,7 @@ export class TabsPage {
   page3 = NotesPage;
   @ViewChild("supertabs") superTabs;
 
-  constructor(public events: Events, public navState: NavStateService) {
+  constructor(public events: Events) {
     events.unsubscribe("event:tab-change"); // remove old event
     events.subscribe('event:tab-change', (data) => {
       this.onTabChange(data.tab);
@@ -30,7 +29,6 @@ export class TabsPage {
   }
 
   onTabSelect(ev: any) {
-    this.navState.setNavTab(ev.index);
     ev.index > 0 ? this.showFab = true : this.showFab = false;
     this.activeTab = ev.index;
   }

@@ -4,9 +4,8 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {TabsPage} from "../pages/_tabs/tabs";
-import {NavStateService} from "../services/nav-state-service";
 import {SettingsPage} from "../pages/settings/settings";
-import {InformationPage} from "../information/information";
+import {InformationPage} from "../pages/information/information";
 
 @Component({
   templateUrl: 'app.html'
@@ -19,7 +18,7 @@ export class MyApp {
   constructor(
     public appCtrl: App, public ionicApp: IonicApp, public menuCtrl: MenuController,
     public events: Events, public platform: Platform, public statusBar: StatusBar,
-    public splashScreen: SplashScreen, public navState: NavStateService
+    public splashScreen: SplashScreen
   ) {
     this.initializeApp();
 
@@ -30,10 +29,6 @@ export class MyApp {
       {id: 3, icon: 'settings', title: 'Einstellungen', component: SettingsPage},
       {id: 4, icon: 'information-circle', title: 'Informationen', component: InformationPage}
     ];
-  }
-
-  ionViewWillEnter() {
-    this.events.publish('event:tab-change', {tab: this.navState.getNavTab()});
   }
 
   initializeApp() {
@@ -47,7 +42,7 @@ export class MyApp {
   }
 
   menuOpened() {
-    history.pushState({}, "dd", "dd");
+    history.pushState({}, null, null);
   }
 
   setupBackButtonBehavior() {
@@ -81,25 +76,15 @@ export class MyApp {
       // Fake browser history on each view enter
       this.appCtrl.viewDidEnter.subscribe((app) => {
         if (window.history.state === null)
-          history.pushState({}, "dd", "dd");
+          history.pushState({}, null, null);
       });
     }
   }
 
   openPage(page) {
-    // check if currently in superTabs
-    let inSuperTabs = this.navState.getInSuperTabs();
-
-    // save status of new page in navState
-    if (page.id < 3) {
-      this.navState.setNavTab(page.id);
-      this.navState.setInSuperTabs(true);
-    }
-    else this.navState.setInSuperTabs(false);
-
     // if new page in superTabs && currently in superTabs
-    if (page.id < 3 && inSuperTabs)
+    if (page.id < 3)
       this.events.publish('event:tab-change', {tab: page.id});
-    else this.nav.setRoot(page.component);
+    else this.nav.push(page.component);
   }
 }
