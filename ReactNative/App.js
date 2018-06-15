@@ -88,7 +88,7 @@ export default class Navigation extends Component {
 
   render() {
     return ([
-      <StatusBar key='statusbar' backgroundColor="#222" barStyle="light-content"/>,
+      <StatusBar key='statusbar' backgroundColor="#111" barStyle="light-content"/>,
       <RootNavigator key='navigation'/>
     ])
   }

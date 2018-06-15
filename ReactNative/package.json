@@ -1,20 +1,20 @@
 {
   "name": "MasterNews",
-  "version": "0.0.1",
+  "version": "1.0",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
   "dependencies": {
-    "native-base": "^2.5.1",
+    "native-base": "2.5.1",
     "react": "16.3.1",
     "react-native": "0.55.4",
-    "react-native-action-button": "^2.8.4",
-    "react-native-simple-dialogs": "^0.3.1",
+    "react-native-action-button": "2.8.4",
+    "react-native-simple-dialogs": "0.3.1",
     "react-native-splash-screen": "3.0.0",
-    "react-navigation": "^1.5.11",
-    "react-navigation-slide-from-right-transition": "^1.0.4"
+    "react-navigation": "1.5.11",
+    "react-navigation-slide-from-right-transition": "1.0.4"
   },
   "devDependencies": {
     "babel-jest": "23.0.1",
