@@ -15,15 +15,15 @@ export default class InfoScreen extends Component {
           <Card>
             <CardItem>
               <Text style={styles.text}>
-                Die App wurde für die Masterarbeit von Maximilian Ehbauer erstellt.
-                Die App hilft dabei verschiedene Entwicklungsmethoden zur Erstellung mobiler Apps zu bewerten.
+                Die App wurde im Rahmen der Masterarbeit von Maximilian Ehbauer erstellt und hilft dabei,
+                verschiedene Frameworks zur Erstellung plattformunabhängiger Apps zu bewerten.
               </Text>
             </CardItem>
           </Card>
           <Card>
             <CardItem>
               <Text style={styles.text}>
-                App Variante 5
+                App Variante 3
               </Text>
             </CardItem>
           </Card>

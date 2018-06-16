@@ -1,4 +1,4 @@
-package com.masternews;
+package maxeh.reactnative.masternews;
 
 import android.app.Application;
 

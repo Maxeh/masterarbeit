@@ -13,7 +13,7 @@ export default class WeatherScreen extends Component {
     super();
     this.cityInputRef = null;
     this.state = {
-      startCities: ["Bocholt"],
+      startCities: ["Duisburg"],
       cities: [],
       deleteCityId: null,
       deleteDialogVisible: false,

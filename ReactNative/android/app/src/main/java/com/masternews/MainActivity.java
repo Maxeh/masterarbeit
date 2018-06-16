@@ -1,4 +1,4 @@
-package com.masternews;
+package maxeh.reactnative.masternews;
 import android.os.Bundle; // here
 import com.facebook.react.ReactActivity;
 import com.cboy.rn.splashscreen.SplashScreen; // here
