@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
   templateUrl: 'weather.html'
 })
 export class WeatherPage {
-  startCities = ["Bocholt"];
+  startCities = ["Duisburg"];
   cities: any = [];
 
   constructor(private http: HttpClient, public alertCtrl: AlertController, public events: Events) {
