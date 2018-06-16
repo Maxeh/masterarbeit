@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {App, Events, IonicApp, MenuController, Nav, Platform} from 'ionic-angular';
+import {HeaderColor} from "@ionic-native/header-color";
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
@@ -18,7 +19,7 @@ export class MyApp {
   constructor(
     public appCtrl: App, public ionicApp: IonicApp, public menuCtrl: MenuController,
     public events: Events, public platform: Platform, public statusBar: StatusBar,
-    public splashScreen: SplashScreen
+    public splashScreen: SplashScreen, private headerColor: HeaderColor
   ) {
     this.initializeApp();
 
@@ -35,6 +36,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       this.setupBackButtonBehavior();
 
+      this.headerColor.tint('#222222');
       this.statusBar.styleLightContent();
       this.statusBar.backgroundColorByHexString('#111');
       this.splashScreen.hide();

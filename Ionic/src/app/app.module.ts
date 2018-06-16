@@ -8,6 +8,7 @@ import {NewsPage} from '../pages/news/news';
 import {WeatherPage} from "../pages/weather/weather";
 import {NotesPage} from "../pages/notes/notes";
 
+import {HeaderColor} from "@ionic-native/header-color";
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
@@ -21,6 +22,7 @@ import {WeatherCard} from "../pages/weather/weather-card";
 import {DateService} from "../services/date-service";
 import {InformationPage} from "../pages/information/information";
 import {SettingsPage} from "../pages/settings/settings";
+
 
 
 @NgModule({
@@ -40,6 +42,7 @@ import {SettingsPage} from "../pages/settings/settings";
     NotesCreatePage, InformationPage, SettingsPage
   ],
   providers: [
+    HeaderColor,
     DateService,
     StatusBar,
     SplashScreen,
