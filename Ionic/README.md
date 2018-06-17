@@ -1,4 +1,4 @@
-# PM-AI
+## Description
 Platform-independent app created with Ionic (Cordova).
 
 ## Install

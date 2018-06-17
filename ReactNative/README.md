@@ -1,4 +1,4 @@
-# PM-AI
+## Description
 Platform-independent app created with React Native.
 
 ## Install
