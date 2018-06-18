@@ -9,7 +9,7 @@ export class WeatherPage {
   startCities = ["Duisburg"];
   cities: any = [];
 
-  constructor(private http: HttpClient, public alertCtrl: AlertController, public events: Events) {
+  constructor(public http: HttpClient, public alertCtrl: AlertController, public events: Events) {
     events.unsubscribe("event:fab-weather"); // remove old event
     events.subscribe('event:fab-weather', () => {
       this.onAddCityClick();

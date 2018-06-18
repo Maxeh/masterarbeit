@@ -10,7 +10,7 @@ export class NotesCard {
   @Output() onDeleteCard = new EventEmitter();
   @Output() onEditCard = new EventEmitter();
 
-  constructor(private alertCtrl: AlertController) {
+  constructor(public alertCtrl: AlertController) {
   }
 
   onDeleteClick() {

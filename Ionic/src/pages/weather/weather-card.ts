@@ -10,7 +10,7 @@ export class WeatherCard {
   @Output() onDeleteCard = new EventEmitter();
   Math: any;
 
-  constructor(private alertCtrl: AlertController) {
+  constructor(public alertCtrl: AlertController) {
     this.Math = Math;
   }
 

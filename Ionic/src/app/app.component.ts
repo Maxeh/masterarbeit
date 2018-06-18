@@ -19,7 +19,7 @@ export class MyApp {
   constructor(
     public appCtrl: App, public ionicApp: IonicApp, public menuCtrl: MenuController,
     public events: Events, public platform: Platform, public statusBar: StatusBar,
-    public splashScreen: SplashScreen, private headerColor: HeaderColor
+    public splashScreen: SplashScreen, public headerColor: HeaderColor
   ) {
     this.initializeApp();
 

@@ -9,7 +9,7 @@ import {NewsDetailsPage} from "./news-details";
 export class NewsPage {
   articles: any = null;
 
-  constructor(private http: HttpClient, public appCtrl: App) {
+  constructor(public http: HttpClient, public appCtrl: App) {
     this.http.get('https://maxeh.de/masternews.php?type=news').subscribe(res => {
       let data: any = res;
       this.articles = data.articles;
