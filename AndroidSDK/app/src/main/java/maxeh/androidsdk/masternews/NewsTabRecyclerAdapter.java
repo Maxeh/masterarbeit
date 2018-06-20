@@ -23,10 +23,10 @@ public class NewsTabRecyclerAdapter extends RecyclerView.Adapter<NewsTabRecycler
     private Context mContext;
     private NewsTab mNewsTab;
 
-    public NewsTabRecyclerAdapter(Context context, List<NewsTabArticle> articles) {
+    public NewsTabRecyclerAdapter(Context context, List<NewsTabArticle> articleList) {
         this.mContext = context;
         this.mInflater = LayoutInflater.from(context);
-        this.mArticleList = articles;
+        this.mArticleList = articleList;
     }
 
     @Override

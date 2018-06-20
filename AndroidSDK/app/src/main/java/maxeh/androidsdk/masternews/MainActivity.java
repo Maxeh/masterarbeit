@@ -14,7 +14,7 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends AppCompatActivity {
-    private PagerAdapter mPagerAdapter;
+    private MainActivityPagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
     private DrawerLayout mDrawerLayout;
 
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        mPagerAdapter = new PagerAdapter(getSupportFragmentManager(), 3);
+        mPagerAdapter = new MainActivityPagerAdapter(getSupportFragmentManager(), 3);
         mViewPager = findViewById(R.id.pager);
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.setOffscreenPageLimit(3);

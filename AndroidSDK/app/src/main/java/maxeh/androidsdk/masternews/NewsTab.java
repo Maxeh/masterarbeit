@@ -26,7 +26,6 @@ import okhttp3.Response;
 public class NewsTab extends Fragment {
     private OkHttpClient mClient = new OkHttpClient();
     private NewsTabRecyclerAdapter mAdapter;
-    private JSONArray mArticles;
     private View mView;
 
     public NewsTab() {}
@@ -45,10 +44,10 @@ public class NewsTab extends Fragment {
     public void onItemClick(View view, int position) {
         NewsTabArticle article = mAdapter.getArticle(position);
 
-        Intent myIntent = new Intent(getActivity(), NewsTabDetail.class);
-        myIntent.putExtra("description", article.getDescription());
-        myIntent.putExtra("urlToImage", article.getUrlToImage());
-        startActivity(myIntent);
+        Intent intent = new Intent(getActivity(), NewsTabDetail.class);
+        intent.putExtra("description", article.getDescription());
+        intent.putExtra("urlToImage", article.getUrlToImage());
+        startActivity(intent);
     }
 
     public void getRequest(final NewsTab newsTab, String url) {
@@ -56,24 +55,24 @@ public class NewsTab extends Fragment {
 
         mClient.newCall(request).enqueue(new Callback() {
             @Override
-            public void onFailure(final Call call, IOException e) {
+            public void onFailure(Call call, IOException e) {
                 Log.e("error", e.getMessage());
             }
 
             @Override
-            public void onResponse(Call call, final Response response) {
+            public void onResponse(Call call, Response response) {
                 try {
                     String res = response.body().string();
                     JSONObject rootObj = new JSONObject(res);
-                    mArticles = rootObj.getJSONArray("articles");
-                    final ArrayList<NewsTabArticle> articlesList = new ArrayList<>();
-                    for (int i = 0; i < mArticles.length(); i++) {
+                    JSONArray jsonArticles = rootObj.getJSONArray("articles");
+                    final ArrayList<NewsTabArticle> articleList = new ArrayList<>();
+                    for (int i = 0; i < jsonArticles.length(); i++) {
                         NewsTabArticle article = new NewsTabArticle(
-                                mArticles.getJSONObject(i).getString("title"),
-                                mArticles.getJSONObject(i).getString("description"),
-                                mArticles.getJSONObject(i).getString("urlToImage")
+                                jsonArticles.getJSONObject(i).getString("title"),
+                                jsonArticles.getJSONObject(i).getString("description"),
+                                jsonArticles.getJSONObject(i).getString("urlToImage")
                         );
-                        articlesList.add(article);
+                        articleList.add(article);
                     }
 
                     getActivity().runOnUiThread(new Runnable() {
@@ -81,7 +80,7 @@ public class NewsTab extends Fragment {
                         public void run() {
                             RecyclerView recyclerView = mView.findViewById(R.id.recyclerView);
                             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                            mAdapter = new NewsTabRecyclerAdapter(getActivity(), articlesList);
+                            mAdapter = new NewsTabRecyclerAdapter(getActivity(), articleList);
                             mAdapter.setClickListener(newsTab);
                             recyclerView.setAdapter(mAdapter);
 

@@ -5,10 +5,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 
-public class PagerAdapter extends FragmentStatePagerAdapter {
+public class MainActivityPagerAdapter extends FragmentStatePagerAdapter {
     private int mCount;
 
-    public PagerAdapter(FragmentManager fm, int count) {
+    public MainActivityPagerAdapter(FragmentManager fm, int count) {
         super(fm);
         this.mCount = count;
     }
