@@ -19,10 +19,12 @@
         <item
             android:id="@+id/menu_settings"
             android:icon="@drawable/ic_settings"
-            android:title="Einstellungen" />
+            android:title="Einstellungen"
+            android:checkable="false"/>
         <item
             android:id="@+id/menu_info"
             android:icon="@drawable/ic_info"
-            android:title="Informationen" />
+            android:title="Informationen"
+            android:checkable="false" />
     </group>
 </menu>

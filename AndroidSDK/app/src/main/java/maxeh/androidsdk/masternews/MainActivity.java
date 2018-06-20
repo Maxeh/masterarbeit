@@ -1,5 +1,6 @@
 package maxeh.androidsdk.masternews;
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -13,10 +14,9 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends AppCompatActivity {
-
-    PagerAdapter mPagerAdapter;
-    ViewPager mViewPager;
-    DrawerLayout mDrawerLayout;
+    private PagerAdapter mPagerAdapter;
+    private ViewPager mViewPager;
+    private DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +33,9 @@ public class MainActivity extends AppCompatActivity {
             actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
         }
 
-        TabLayout tabLayout = findViewById(R.id.tabLayout);
-        tabLayout.addTab(tabLayout.newTab());
-        tabLayout.addTab(tabLayout.newTab());
-        tabLayout.addTab(tabLayout.newTab());
-
-        mPagerAdapter = new PagerAdapter(getSupportFragmentManager(), 3);
-        mViewPager = findViewById(R.id.pager);
-        mViewPager.setAdapter(mPagerAdapter);
-
         mDrawerLayout = findViewById(R.id.drawer_layout);
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        final NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setCheckedItem(R.id.menu_news);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -59,12 +50,51 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.menu_notes:
                                 mViewPager.setCurrentItem(2);
                                 break;
+                            case R.id.menu_settings:
+                                Intent myIntent = new Intent(MainActivity.this, SettingsActivity.class);
+                                startActivity(myIntent);
+                                break;
+                            case R.id.menu_info:
+                                Intent myIntent2 = new Intent(MainActivity.this, InfoActivity.class);
+                                startActivity(myIntent2);
+                                break;
                         }
-                        menuItem.setChecked(true);
                         mDrawerLayout.closeDrawers();
                         return true;
                     }
-                });
+                }
+        );
+
+        mPagerAdapter = new PagerAdapter(getSupportFragmentManager(), 3);
+        mViewPager = findViewById(R.id.pager);
+        mViewPager.setAdapter(mPagerAdapter);
+        mViewPager.setOffscreenPageLimit(3);
+
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch(tab.getPosition()) {
+                    case 0:
+                        navigationView.setCheckedItem(R.id.menu_news);
+                        break;
+                    case 1:
+                        navigationView.setCheckedItem(R.id.menu_weather);
+                        break;
+                    case 2:
+                        navigationView.setCheckedItem(R.id.menu_notes);
+                        break;
+                }
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {}
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {}
+        });
+
+        tabLayout.addTab(tabLayout.newTab());
+        tabLayout.addTab(tabLayout.newTab());
+        tabLayout.addTab(tabLayout.newTab());
     }
 
     @Override
