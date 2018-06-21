@@ -41,7 +41,7 @@ public class NewsTab extends Fragment {
         getRequest(this, "https://maxeh.de/masternews.php?type=news");
     }
 
-    public void onItemClick(View view, int position) {
+    public void onNewsCardClick(View view, int position) {
         NewsTabArticle article = mAdapter.getArticle(position);
 
         Intent intent = new Intent(getActivity(), NewsTabDetail.class);

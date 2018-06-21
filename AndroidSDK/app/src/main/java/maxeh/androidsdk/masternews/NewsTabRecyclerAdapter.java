@@ -79,7 +79,7 @@ public class NewsTabRecyclerAdapter extends RecyclerView.Adapter<NewsTabRecycler
         @Override
         public void onClick(View view) {
             if (mNewsTab != null) {
-                mNewsTab.onItemClick(view, getAdapterPosition());
+                mNewsTab.onNewsCardClick(view, getAdapterPosition());
             }
         }
     }

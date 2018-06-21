@@ -1,6 +1,7 @@
 package maxeh.androidsdk.masternews;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -11,6 +12,7 @@ import android.support.design.widget.TabLayout;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -70,18 +72,22 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.setOffscreenPageLimit(3);
 
-        TabLayout tabLayout = findViewById(R.id.tabLayout);
+        final TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                FloatingActionButton fab = findViewById(R.id.floatingActionButton);
                 switch(tab.getPosition()) {
                     case 0:
+                        fab.hide();
                         navigationView.setCheckedItem(R.id.menu_news);
                         break;
                     case 1:
+                        fab.show();
                         navigationView.setCheckedItem(R.id.menu_weather);
                         break;
                     case 2:
+                        fab.show();
                         navigationView.setCheckedItem(R.id.menu_notes);
                         break;
                 }
@@ -95,6 +101,20 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab());
         tabLayout.addTab(tabLayout.newTab());
         tabLayout.addTab(tabLayout.newTab());
+
+        FloatingActionButton fab = findViewById(R.id.floatingActionButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (tabLayout.getSelectedTabPosition() == 1) {
+                    WeatherTab weatherTab = (WeatherTab) mPagerAdapter.getRegisteredFragment(mViewPager.getCurrentItem());
+                    weatherTab.test();
+                } else if (tabLayout.getSelectedTabPosition() == 2) {
+                    NotesTab notesTab = (NotesTab) mPagerAdapter.getRegisteredFragment(mViewPager.getCurrentItem());
+                    notesTab.test();
+                }
+            }
+        });
     }
 
     @Override

@@ -47,7 +47,7 @@ public class SettingsActivity extends AppCompatActivity {
                     }
                 });
             }
-        }, 70);
+        }, 80);
     }
 
     @Override

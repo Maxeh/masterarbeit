@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 public class WeatherTab extends Fragment {
@@ -22,4 +23,7 @@ public class WeatherTab extends Fragment {
         return inflater.inflate(R.layout.fragment_weather_tab, container, false);
     }
 
+    public void test() {
+        Toast.makeText(getActivity(), "weather", Toast.LENGTH_LONG).show();
+    }
 }
