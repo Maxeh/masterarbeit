@@ -11,6 +11,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -41,21 +46,13 @@ public class NewsTabRecyclerAdapter extends RecyclerView.Adapter<NewsTabRecycler
 
         new Thread(new Runnable() {
             public void run() {
-                try {
-                    final Bitmap bitmap = BitmapFactory.decodeStream(
-                            (InputStream) new URL(mArticleList.get(position).getUrlToImage()).getContent()
-                    );
-                    ((AppCompatActivity) mContext).runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            holder.newsImageView.setImageBitmap(bitmap);
-                        }
-                    });
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                ((AppCompatActivity) mContext).runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Picasso.get().cancelRequest(holder.newsImageView);
+                        Picasso.get().load(mArticleList.get(position).getUrlToImage()).into(holder.newsImageView);
+                    }
+                });
             }
         }).start();
     }

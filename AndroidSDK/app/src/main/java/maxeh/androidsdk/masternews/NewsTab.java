@@ -43,7 +43,6 @@ public class NewsTab extends Fragment {
 
     public void onNewsCardClick(View view, int position) {
         NewsTabArticle article = mAdapter.getArticle(position);
-
         Intent intent = new Intent(getActivity(), NewsTabDetail.class);
         intent.putExtra("description", article.getDescription());
         intent.putExtra("urlToImage", article.getUrlToImage());

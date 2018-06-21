@@ -1,5 +1,6 @@
 package maxeh.androidsdk.masternews;
 
+
 public class NewsTabArticle {
     private String title;
     private String description;
