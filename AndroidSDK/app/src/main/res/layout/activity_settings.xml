@@ -37,14 +37,14 @@
                 android:id="@+id/checkBox1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="6dp"
-                android:background="?attr/selectableItemBackground"
+                android:background="?android:selectableItemBackground"
+                android:button="@null"
                 android:checked="true"
-                android:clickable="true"
-                android:focusable="true"
-                android:padding="10dp"
+                android:drawableLeft="?android:attr/listChoiceIndicatorMultiple"
+                android:drawablePadding="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="10dp"
                 android:text="Reuters" />
 
             <View
@@ -58,10 +58,13 @@
                 android:id="@+id/checkBox2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="6dp"
-                android:padding="10dp"
+                android:background="?android:selectableItemBackground"
+                android:button="@null"
+                android:drawableLeft="?android:attr/listChoiceIndicatorMultiple"
+                android:drawablePadding="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="10dp"
                 android:text="Spiegel Online" />
 
             <View
@@ -75,10 +78,14 @@
                 android:id="@+id/checkBox3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="6dp"
-                android:padding="10dp"
+                android:background="?android:selectableItemBackground"
+                android:button="@null"
+                android:drawableLeft="?android:attr/listChoiceIndicatorMultiple"
+                android:drawablePadding="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp"
                 android:text="Focus Online" />
 
             <View
@@ -92,10 +99,14 @@
                 android:id="@+id/checkBox4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="6dp"
-                android:padding="10dp"
+                android:background="?android:selectableItemBackground"
+                android:button="@null"
+                android:drawableLeft="?android:attr/listChoiceIndicatorMultiple"
+                android:drawablePadding="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp"
                 android:text="Handelsblatt" />
 
             <View
@@ -121,125 +132,77 @@
                 android:layout_height="1dp"
                 android:background="#eee" />
 
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/constraintLayout1"
+            <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="setRadiobutton"
-                android:background="?android:selectableItemBackground">
+                android:checkedButton="@+id/radioButton1">
 
                 <RadioButton
                     android:id="@+id/radioButton1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:checked="true"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorSingle"
+                    android:layout_gravity="start"
+                    android:textAlignment="textStart"
+                    android:background="?android:selectableItemBackground"
+                    android:layoutDirection="rtl"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="22dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp"
                     android:text="OpenWeatherMap"
-                    android:textColor="#222"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </android.support.constraint.ConstraintLayout>
+                    android:textSize="14sp" />
 
-            <View
-                android:id="@+id/divider7"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="20dp"
-                android:background="#eee" />
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/constraintLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="setRadiobutton"
-                android:background="?android:selectableItemBackground">
+                <View
+                    android:id="@+id/divider7"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#eee" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorSingle"
+                    android:layout_gravity="start"
+                    android:textAlignment="textStart"
+                    android:background="?android:selectableItemBackground"
+                    android:layoutDirection="rtl"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="22dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp"
                     android:text="Wetter Online"
-                    android:textColor="#222"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </android.support.constraint.ConstraintLayout>
+                    android:textSize="14sp" />
 
-            <View
-                android:id="@+id/divider8"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="20dp"
-                android:background="#eee" />
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/constraintLayout3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="setRadiobutton"
-                android:background="?android:selectableItemBackground">
+                <View
+                    android:id="@+id/divider8"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#eee" />
 
                 <RadioButton
                     android:id="@+id/radioButton3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:clickable="false"
-                    android:focusable="false"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
+                    android:background="?android:selectableItemBackground"
+                    android:button="@null"
+                    android:drawableRight="?android:attr/listChoiceIndicatorSingle"
+                    android:layoutDirection="rtl"
+                    android:layout_gravity="start"
+                    android:textAlignment="textStart"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="22dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp"
                     android:text="Wetter24"
-                    android:textColor="#222"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </android.support.constraint.ConstraintLayout>
+                    android:textSize="14sp" />
+
+            </RadioGroup>
 
             <View
                 android:id="@+id/divider9"

@@ -1,5 +1,6 @@
 package maxeh.androidsdk.masternews;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -24,7 +25,8 @@ public class NotesTab extends Fragment {
     }
 
     public void test() {
-        Toast.makeText(getActivity(), "notes", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getActivity(), SettingsActivity.class);
+        startActivity(intent);
     }
 
 }
