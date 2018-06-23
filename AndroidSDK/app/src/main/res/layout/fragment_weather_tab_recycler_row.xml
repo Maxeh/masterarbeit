@@ -35,7 +35,7 @@
                         android:id="@+id/cityTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="15dp"
+                        android:paddingLeft="17dp"
                         android:text="Stadt"
                         android:textColor="#222"
                         android:textSize="18sp"
@@ -86,7 +86,6 @@
                             android:id="@+id/dateTextView1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
                             android:layout_marginTop="3dp"
                             android:layout_weight="1"
                             android:gravity="center"
@@ -98,8 +97,8 @@
                             android:layout_width="45dp"
                             android:layout_height="45dp"
                             android:layout_gravity="center"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginTop="2dp"
                             android:layout_weight="1" />
 
                         <TextView
@@ -107,7 +106,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="3dp"
-                            android:layout_marginTop="5dp"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="TextView"
@@ -124,7 +122,6 @@
                             android:id="@+id/dateTextView2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
                             android:layout_marginTop="3dp"
                             android:layout_weight="1"
                             android:gravity="center"
@@ -136,8 +133,8 @@
                             android:layout_width="45dp"
                             android:layout_height="45dp"
                             android:layout_gravity="center"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginTop="2dp"
                             android:layout_weight="1" />
 
                         <TextView
@@ -145,7 +142,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="3dp"
-                            android:layout_marginTop="5dp"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="TextView"
@@ -162,7 +158,6 @@
                             android:id="@+id/dateTextView3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
                             android:layout_marginTop="3dp"
                             android:layout_weight="1"
                             android:gravity="center"
@@ -174,8 +169,8 @@
                             android:layout_width="45dp"
                             android:layout_height="45dp"
                             android:layout_gravity="center"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginTop="2dp"
                             android:layout_weight="1" />
 
                         <TextView
@@ -183,7 +178,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="3dp"
-                            android:layout_marginTop="5dp"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="TextView"
@@ -200,7 +194,6 @@
                             android:id="@+id/dateTextView4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
                             android:layout_marginTop="3dp"
                             android:layout_weight="1"
                             android:gravity="center"
@@ -212,8 +205,8 @@
                             android:layout_width="45dp"
                             android:layout_height="45dp"
                             android:layout_gravity="center"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginTop="2dp"
                             android:layout_weight="1" />
 
                         <TextView
@@ -221,7 +214,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="3dp"
-                            android:layout_marginTop="5dp"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="TextView"
@@ -238,7 +230,6 @@
                             android:id="@+id/dateTextView5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
                             android:layout_marginTop="3dp"
                             android:layout_weight="1"
                             android:gravity="center"
@@ -250,8 +241,8 @@
                             android:layout_width="45dp"
                             android:layout_height="45dp"
                             android:layout_gravity="center"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginTop="2dp"
                             android:layout_weight="1" />
 
                         <TextView
@@ -259,7 +250,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="3dp"
-                            android:layout_marginTop="5dp"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="TextView"
@@ -276,7 +266,6 @@
                             android:id="@+id/dateTextView6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
                             android:layout_marginTop="3dp"
                             android:layout_weight="1"
                             android:gravity="center"
@@ -288,8 +277,8 @@
                             android:layout_width="45dp"
                             android:layout_height="45dp"
                             android:layout_gravity="center"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginTop="2dp"
                             android:layout_weight="1" />
 
                         <TextView
@@ -297,7 +286,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="3dp"
-                            android:layout_marginTop="5dp"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="TextView"

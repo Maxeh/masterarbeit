@@ -6,4 +6,5 @@
     <color name="white">#FFF</color>
     <color name="grey">#BBB</color>
     <color name="menu_text_color">#222</color>
+    <color name="danger">#f53d3d</color>
 </resources>

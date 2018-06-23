@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -81,6 +82,16 @@ public class WeatherTabRecyclerAdapter extends RecyclerView.Adapter<WeatherTabRe
         temp = Math.round(Double.parseDouble(temp) - 273.15) + "°";
         holder.tempTextView6.setText(temp);
 
+        // onClick is implemented in ViewHolder
+       /* holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mWeatherTab != null) {
+                    mWeatherTab.onDeleteClick(v, position);
+                }
+            }
+        });*/
+
         new Thread(new Runnable() {
             public void run() {
                 final RequestCreator rq1 = Picasso.get().load("https://openweathermap.org/img/w/" + mWeatherList.get(position).getWeatherDetails(0).getIcon() + ".png");
@@ -113,6 +124,7 @@ public class WeatherTabRecyclerAdapter extends RecyclerView.Adapter<WeatherTabRe
         TextView cityTextView, dateTextView1, dateTextView2, dateTextView3, dateTextView4, dateTextView5, dateTextView6,
                  tempTextView1, tempTextView2, tempTextView3, tempTextView4, tempTextView5, tempTextView6;
         ImageView weatherImage1, weatherImage2, weatherImage3, weatherImage4, weatherImage5, weatherImage6;
+        ImageButton deleteButton;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -135,19 +147,16 @@ public class WeatherTabRecyclerAdapter extends RecyclerView.Adapter<WeatherTabRe
             weatherImage4 = itemView.findViewById(R.id.weatherImage4);
             weatherImage5 = itemView.findViewById(R.id.weatherImage5);
             weatherImage6 = itemView.findViewById(R.id.weatherImage6);
-            itemView.setOnClickListener(this);
+            deleteButton = itemView.findViewById(R.id.deleteButton);
+            deleteButton.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
             if (mWeatherTab != null) {
-                mWeatherTab.onNewsCardClick(view, getAdapterPosition());
+                mWeatherTab.onDeleteClick(view, getAdapterPosition());
             }
         }
-    }
-
-    public WeatherTabItem getWeatherItem(int id) {
-        return mWeatherList.get(id);
     }
 
     public void setClickListener(WeatherTab weatherTab) {
