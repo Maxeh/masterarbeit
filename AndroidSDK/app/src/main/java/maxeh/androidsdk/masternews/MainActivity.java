@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                     weatherTab.onCityAddClick();
                 } else if (tabLayout.getSelectedTabPosition() == 2) {
                     NotesTab notesTab = (NotesTab) mPagerAdapter.getRegisteredFragment(mViewPager.getCurrentItem());
-                    notesTab.test();
+                    notesTab.onNoteAddClick();
                 }
             }
         });

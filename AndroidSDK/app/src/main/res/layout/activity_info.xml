@@ -27,6 +27,7 @@
                 android:id="@+id/textViewInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:lineSpacingExtra="5sp"
                 android:text="Die App wurde im Rahmen der Masterarbeit von Maximilian Ehbauer erstellt und hilft dabei, verschiedene Frameworks zur Erstellung plattformunabhängiger Apps zu bewerten."
                 android:textColor="#222" />
 

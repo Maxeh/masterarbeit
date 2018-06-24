@@ -5,10 +5,21 @@
     android:layout_height="match_parent"
     tools:context=".NotesTab">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/notesEmptyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Keine Notizen angelegt"
+        android:textColor="#222"
+        android:visibility="invisible" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewNotes"
+        android:clipToPadding="false"
+        android:paddingBottom="80dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="ddd" />
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

@@ -82,16 +82,6 @@ public class WeatherTabRecyclerAdapter extends RecyclerView.Adapter<WeatherTabRe
         temp = Math.round(Double.parseDouble(temp) - 273.15) + "°";
         holder.tempTextView6.setText(temp);
 
-        // onClick is implemented in ViewHolder
-       /* holder.deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mWeatherTab != null) {
-                    mWeatherTab.onDeleteClick(v, position);
-                }
-            }
-        });*/
-
         new Thread(new Runnable() {
             public void run() {
                 final RequestCreator rq1 = Picasso.get().load("https://openweathermap.org/img/w/" + mWeatherList.get(position).getWeatherDetails(0).getIcon() + ".png");

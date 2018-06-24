@@ -77,7 +77,7 @@ public class NewsTab extends Fragment {
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            RecyclerView recyclerView = mView.findViewById(R.id.recyclerView);
+                            RecyclerView recyclerView = mView.findViewById(R.id.recyclerViewNews);
                             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                             mAdapter = new NewsTabRecyclerAdapter(getActivity(), articleList);
                             mAdapter.setClickListener(newsTab);
