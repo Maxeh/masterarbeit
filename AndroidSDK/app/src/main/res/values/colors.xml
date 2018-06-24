@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#222</color>
-    <color name="colorPrimaryDark">#111</color>
-    <color name="colorAccent">#222</color>
-    <color name="white">#FFF</color>
-    <color name="grey">#BBB</color>
-    <color name="menu_text_color">#222</color>
+    <color name="colorPrimary">#222222</color>
+    <color name="colorPrimaryDark">#111111</color>
+    <color name="colorAccent">#222222</color>
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#BBBBBB</color>
+    <color name="menu_text_color">#222222</color>
     <color name="danger">#f53d3d</color>
 </resources>
