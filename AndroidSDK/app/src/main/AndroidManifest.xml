@@ -45,10 +45,10 @@
             android:theme="@style/AppThemeWithActionBar" />
         <activity
             android:name=".NotesTabDetail"
+            android:windowSoftInputMode="stateVisible"
             android:configChanges="orientation"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeWithActionBar" />
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

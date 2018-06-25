@@ -107,7 +107,7 @@ public class WeatherTab extends Fragment {
         });
     }
 
-    public void onDeleteClick(View view, final int position) {
+    public void onDeleteCityClick(View view, final int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage("Wirklich löschen?");
         builder.setCancelable(true);

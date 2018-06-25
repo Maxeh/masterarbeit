@@ -15,8 +15,13 @@ import android.widget.Button;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.app.Activity.RESULT_OK;
+
 
 public class NotesTab extends Fragment {
+    static final int ADD_NOTE = 1;
+    static final int EDIT_NOTE = 2;
+
     private NotesTabRecyclerAdapter mRecyclerAdapter;
     private List<NotesTabItem> mNotesList = new ArrayList<>();
     private String[] mStartNotes = {
@@ -52,18 +57,35 @@ public class NotesTab extends Fragment {
         recyclerView.setAdapter(mRecyclerAdapter);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == ADD_NOTE && resultCode == RESULT_OK) {
+            mNotesList.add(new NotesTabItem(data.getStringExtra("text")));
+            mRecyclerAdapter.notifyItemInserted(mNotesList.size() - 1);
+            mView.findViewById(R.id.notesEmptyTextView).setVisibility(View.INVISIBLE);
+        } else if (requestCode == EDIT_NOTE && resultCode == RESULT_OK) {
+            int index = data.getIntExtra("index", -1);
+            if (index > -1) {
+                String text = data.getStringExtra("text");
+                mNotesList.get(index).setText(text);
+                mRecyclerAdapter.notifyItemChanged(index);
+            }
+        }
+    }
+
     public void onNoteAddClick() {
         Intent intent = new Intent(getActivity(), NotesTabDetail.class);
-        intent.putExtra("type", "add");
-        startActivity(intent);
+        intent.putExtra("requestCode", ADD_NOTE);
+        startActivityForResult(intent, ADD_NOTE);
     }
 
     public void onEditNoteClick(View view, int position) {
         NotesTabItem note = mRecyclerAdapter.getNote(position);
         Intent intent = new Intent(getActivity(), NotesTabDetail.class);
+        intent.putExtra("index", position);
         intent.putExtra("text", note.getText());
-        intent.putExtra("type", "edit");
-        startActivity(intent);
+        intent.putExtra("requestCode", EDIT_NOTE);
+        startActivityForResult(intent, EDIT_NOTE);
     }
 
     public void onDeleteNoteClick(View view, final int position) {

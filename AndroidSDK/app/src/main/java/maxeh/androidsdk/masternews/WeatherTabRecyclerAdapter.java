@@ -3,7 +3,6 @@ package maxeh.androidsdk.masternews;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 
-import java.io.File;
 import java.util.List;
 
 public class WeatherTabRecyclerAdapter extends RecyclerView.Adapter<WeatherTabRecyclerAdapter.ViewHolder> {
@@ -144,7 +142,7 @@ public class WeatherTabRecyclerAdapter extends RecyclerView.Adapter<WeatherTabRe
         @Override
         public void onClick(View view) {
             if (mWeatherTab != null) {
-                mWeatherTab.onDeleteClick(view, getAdapterPosition());
+                mWeatherTab.onDeleteCityClick(view, getAdapterPosition());
             }
         }
     }
