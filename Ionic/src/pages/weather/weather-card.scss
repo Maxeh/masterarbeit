@@ -2,17 +2,18 @@
   .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 0;
 
     .city-name {
-      margin: 12px 0 3px 22px;
+      padding-left: 20px;
       font-size: 1.8rem;
     }
 
     .delete-button {
-      margin: 4px 13px 3px 0;
-      width: 35px;
-      height: 3.6rem;
+      margin: 0;
+      padding: 0 2px;
+      height: 4rem;
       font-size: 1.6rem;
 
       .button-inner {
@@ -36,11 +37,11 @@
       align-items: center;
 
       .first-row {
-        margin-bottom: -5px;
+        margin-bottom: -1px;
       }
 
       .third-row {
-        margin-top: -5px;
+        margin-top: -1px;
       }
     }
   }

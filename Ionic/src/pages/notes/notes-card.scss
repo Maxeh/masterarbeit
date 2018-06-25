@@ -1,6 +1,6 @@
 .notes-card {
   ion-card-header {
-    padding: 3px 10px 3px 16px;
+    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,13 +16,22 @@
     height: 1px;
   }
 
-  .delete-button, .edit-button {
-    margin: 0;
-    padding: 5px 0;
-    width: 25px;
+  .date-wrapper {
+    padding: 0 14px;
+  }
 
-    .button-inner {
-      font-size: 1.4rem;
+  .button-wrapper {
+    display: flex;
+    justify-content: right;
+
+    .delete-button, .edit-button {
+      margin: 0;
+      height: 4rem;
+      font-size: 1.6rem;
+
+      .button-inner {
+        font-size: 1.4rem;
+      }
     }
   }
 }

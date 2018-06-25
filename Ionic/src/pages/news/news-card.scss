@@ -1,6 +1,8 @@
 .news-card {
   display: flex;
-  align-items: stretch;
+  align-items: center;
+  margin-bottom: 6px !important;
+  margin-top: 6px !important;
 
   .item-inner {
     padding: 0 !important;
@@ -15,11 +17,10 @@
 }
 
 .news-image {
-  width: 28%;
+  width: 30%;
+  //justify-self: center;
 
-  img {
-    height: 100%;
-  }
+
 }
 
 .news-content {

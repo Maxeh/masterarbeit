@@ -1,7 +1,9 @@
 <ion-card class="notes-card">
   <ion-card-header>
-    {{note.date}}
-    <div>
+    <div class="date-wrapper">
+      {{note.date}}
+    </div>
+    <div class="button-wrapper">
       <button clear ion-button icon-only class="delete-button" (click)="onEditClick()">
         <ion-icon name="md-create" color="dark"></ion-icon>
       </button>
