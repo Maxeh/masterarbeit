@@ -47,20 +47,31 @@ class MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMi
     new Tab(text: 'WETTER'),
     new Tab(text: 'NOTIZEN'),
   ];
-
-  TabController _tabController;
+  NewsPage newsPage = NewsPage();
+  WeatherPage weatherPage = WeatherPage();
+  NotesPage notesPage = NotesPage();
+  TabController tabController;
+  int selectedTabIndex = 0;
+  bool showFab = false;
 
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(vsync: this, length: myTabs.length);
+    tabController = new TabController(vsync: this, length: myTabs.length);
+    tabController.addListener(() {
+      setState(() {
+        selectedTabIndex = tabController.index;
+        print(selectedTabIndex);
+        selectedTabIndex > 0 ? showFab = true : showFab = false;
+      });
+    });
   }
 
-  @override
+ /* @override
   void dispose() {
-    _tabController.dispose();
+    tabController.dispose();
     super.dispose();
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -69,16 +80,16 @@ class MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMi
       appBar: new AppBar(
         title: Text("MasterNews"),
         bottom: new TabBar(
-          controller: _tabController,
+          controller: tabController,
           tabs: myTabs,
         ),
       ),
       body: new TabBarView(
-        controller: _tabController,
+        controller: tabController,
         children: [
-          new NewsPage(),
-          new WeatherPage(),
-          new NotesPage(),
+          newsPage,
+          weatherPage,
+          notesPage,
         ],
       ),
       drawer: Drawer(
@@ -95,7 +106,7 @@ class MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMi
               leading: const Icon(newsIcon, color: primaryColor),
               title: Text("News"),
               onTap: () {
-                _tabController.animateTo(0);
+                tabController.animateTo(0);
                 Navigator.pop(context);
               },
             ),
@@ -103,7 +114,7 @@ class MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMi
               leading: const Icon(Icons.wb_sunny, color: primaryColor),
               title: Text("Wetter"),
               onTap: () {
-                _tabController.animateTo(1);
+                tabController.animateTo(1);
                 Navigator.pop(context);
               },
             ),
@@ -111,7 +122,7 @@ class MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMi
               leading: const Icon(Icons.create, color: primaryColor),
               title: Text("Notizen"),
               onTap: () {
-                _tabController.animateTo(2);
+                tabController.animateTo(2);
                 Navigator.pop(context);
               },
             ),
@@ -135,6 +146,22 @@ class MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMi
           ],
         ),
       ),
+      floatingActionButton: new Builder(
+        builder: (BuildContext context) {
+          if (showFab) {
+            return FloatingActionButton(
+              onPressed: () {
+                newsPage.test();
+                Scaffold
+                    .of(context)
+                    .showSnackBar(
+                    new SnackBar(content: new Text('Show Snackbar')));
+              },
+              child: new Icon(Icons.add, color: Colors.white),
+            );
+          } else return new Container();
+        }
+      )
     );
   }
 }
