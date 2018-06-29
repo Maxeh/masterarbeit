@@ -67,11 +67,11 @@ class MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMi
     });
   }
 
- /* @override
+  @override
   void dispose() {
     tabController.dispose();
     super.dispose();
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -146,12 +146,13 @@ class MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMi
           ],
         ),
       ),
-      floatingActionButton: new Builder(
+     /* floatingActionButton: new Builder(
         builder: (BuildContext context) {
           if (showFab) {
             return FloatingActionButton(
               onPressed: () {
-                newsPage.test();
+                weatherPage.test();
+                //NewsPage.of(context).test2();
                 Scaffold
                     .of(context)
                     .showSnackBar(
@@ -161,7 +162,7 @@ class MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMi
             );
           } else return new Container();
         }
-      )
+      )*/
     );
   }
 }
