@@ -29,7 +29,7 @@ class WeatherItem {
 
 class WeatherPage extends StatefulWidget {
   final List<WeatherItem> weatherList = List<WeatherItem>();
-  final List<String> startCities = ["Duisburg", "Bocholt"];
+  final List<String> startCities = ["Duisburg"];
 
   WeatherPage({Key key}) : super(key: key) {
     startCities.forEach((city) {
@@ -41,7 +41,6 @@ class WeatherPage extends StatefulWidget {
   WeatherPageState createState() => WeatherPageState();
 
   Future<void> fetchPost(String city) async {
-    print("called");
     final response = await http.get('https://maxeh.de/masternews.php?type=weather&city='+city);
     if (response.statusCode == 200) {
       var decoded = json.decode(response.body);
