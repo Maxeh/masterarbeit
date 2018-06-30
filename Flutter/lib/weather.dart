@@ -1,76 +1,98 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+import 'weather-card.dart';
 
-WeatherPageState _weatherPageState;
+class WeatherDetails {
+  String date;
+  String icon;
+  int temp;
+
+  WeatherDetails(String date, String icon, double temp) {
+    this.date = date.split(" ")[1].split(":")[0] + ":" + date.split(" ")[1].split(":")[1];
+    this.icon = icon;
+    this.temp = (temp - 273.15).round();
+  }
+}
+
+class WeatherItem {
+  final String name;
+  final List<WeatherDetails> weatherDetailList = new List<WeatherDetails>();
+
+  WeatherItem(this.name);
+
+  void addWeatherDetails(String date, String icon, double temp) {
+    weatherDetailList.add(new WeatherDetails(date, icon, temp));
+  }
+}
 
 class WeatherPage extends StatefulWidget {
-  WeatherPage({Key key}) : super(key: key);
+  final List<WeatherItem> weatherList = List<WeatherItem>();
+  final List<String> startCities = ["Duisburg", "Bocholt"];
 
-  @override
-  WeatherPageState createState() {
-    _weatherPageState = WeatherPageState();
-    return _weatherPageState;
+  WeatherPage({Key key}) : super(key: key) {
+    startCities.forEach((city) {
+      fetchPost(city);
+    });
   }
 
-  test() {
-    _weatherPageState.test2();
-    print("okokokok");
+  @override
+  WeatherPageState createState() => WeatherPageState();
+
+  Future<void> fetchPost(String city) async {
+    print("called");
+    final response = await http.get('https://maxeh.de/masternews.php?type=weather&city='+city);
+    if (response.statusCode == 200) {
+      var decoded = json.decode(response.body);
+      WeatherItem weatherItem = WeatherItem(decoded['city']['name']);
+      for (int i = 0; i < 6; i++) {
+        weatherItem.addWeatherDetails(
+            decoded['list'][i]['dt_txt'],
+            decoded['list'][i]['weather'][0]["icon"],
+            decoded['list'][i]['main']['temp']
+        );
+      }
+      weatherList.add(weatherItem);
+    } else {
+      throw Exception('Failed to load post');
+    }
   }
 }
 
 class WeatherPageState extends State<WeatherPage> {
-  void test2() {
-    setState(() {
-      print("emtpy");
+
+  void fetchPost(String city) async {
+    widget.fetchPost(city).then((n) {
+      setState(() {});
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      padding: const EdgeInsets.all(8.0),
-      //color: Color(0xFF222222),
-      alignment: Alignment.center,
-      child: new Text('Hello World'),
-    );
+    if (widget.weatherList.length > 0) {
+      List<Widget> listArray = [];
+      widget.weatherList.forEach((item) {
+        listArray.add(WeatherCard(item));
+      });
+      return Scaffold(
+          body: ListView(
+              children: listArray
+          ),
+          floatingActionButton: new Builder(builder: (BuildContext context) {
+            return FloatingActionButton(
+              onPressed: () {},
+              child: new Icon(Icons.add, color: Colors.white),
+            );
+          })
+      );
+    } else {
+      return Container(
+          padding: EdgeInsets.only(top: 20.0),
+          alignment: Alignment.topCenter,
+          child: Text("Keine Städte hinzugefügt",
+              style: TextStyle(color: Color(0xFF222222)))
+      );
+    }
   }
 }
-
-/*
-@override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        alignment: Alignment.topCenter,
-        child: FutureBuilder<List<NewsArticle>>(
-            future: fetchPost(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return ListView.builder(
-                  itemBuilder: (BuildContext context, int index) =>
-                      Container(
-                          padding: EdgeInsets.fromLTRB(3.0, 0.0, 3.0, 0.0),
-                          child: NewsCard(snapshot, index)),
-                  itemCount: snapshot.data.length,
-                );
-              } else
-                return Container(
-                    alignment: Alignment.topCenter,
-                    padding: EdgeInsets.only(top: 20.0),
-                    child: SizedBox(
-                        width: 28.0,
-                        height: 28.0,
-                        child: CircularProgressIndicator(strokeWidth: 3.0)));
-            })),
-        floatingActionButton: new Builder(builder: (BuildContext context) {
-          return FloatingActionButton(
-          onPressed: () {
-            Scaffold
-                .of(context)
-                .showSnackBar(
-                new SnackBar(content: new Text('Show Snackbar')));
-          },
-          child: new Icon(Icons.add, color: Colors.white),
-        );
-        })
-    );
-  } */

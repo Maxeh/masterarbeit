@@ -32,6 +32,26 @@ flutter:
           fonts:
             - asset: lib/icomoon.ttf
 
+   assets:
+       - lib/weather/01d.png
+       - lib/weather/01n.png
+       - lib/weather/02d.png
+       - lib/weather/02n.png
+       - lib/weather/03d.png
+       - lib/weather/03n.png
+       - lib/weather/04d.png
+       - lib/weather/04n.png
+       - lib/weather/09d.png
+       - lib/weather/09n.png
+       - lib/weather/10d.png
+       - lib/weather/10n.png
+       - lib/weather/11d.png
+       - lib/weather/11n.png
+       - lib/weather/13d.png
+       - lib/weather/13n.png
+       - lib/weather/50d.png
+       - lib/weather/50n.png
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
