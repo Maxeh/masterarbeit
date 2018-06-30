@@ -29,7 +29,6 @@ class SettingsPageState extends State<SettingsPage> {
               title: Text("Einstellungen"),
             ),
             body: ListView(
-              shrinkWrap: true,
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.all(20.0),
@@ -123,7 +122,7 @@ class SettingsPageState extends State<SettingsPage> {
                       groupValue: radioValue,
                       onChanged: (String newValue) { setState(() {radioValue = newValue; }); }
                   ),
-                  title: const Text('Wetter 24'),
+                  title: const Text('Wetter24'),
                 ),
                 Divider(height: 0.0),
               ],

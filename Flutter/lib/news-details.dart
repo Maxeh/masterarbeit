@@ -29,7 +29,6 @@ class NewsDetailsPageState extends State<NewsDetailsPage> {
             ),
             body:
             new ListView(
-                shrinkWrap: true,
                 children: <Widget>[
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
