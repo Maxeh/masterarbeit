@@ -6,8 +6,9 @@ class WeatherCard extends StatelessWidget {
   final TextStyle textStyle = TextStyle(color: Color(0xFF222222));
   final weatherUrl = "https://openweathermap.org/img/w/";
   final WeatherItem weatherItem;
+  final onDeleteClick;
 
-  WeatherCard(this.weatherItem);
+  WeatherCard(this.weatherItem, this.onDeleteClick);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class WeatherCard extends StatelessWidget {
                 padding: EdgeInsets.only(left: 15.0),
                 child: Text(weatherItem.name, style: textStyleCaption),
               ),
-              IconButton(onPressed: () {}, icon: Icon(Icons.delete, color: Color(0xFF222222))),
+              IconButton(onPressed: () {onDeleteClick(weatherItem.id);}, icon: Icon(Icons.delete, color: Color(0xFF222222))),
             ]
           ),
           Divider(height: 0.0),

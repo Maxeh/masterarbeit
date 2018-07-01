@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
     changeStatusColor(Color(0xFF111111));
 
     return new MaterialApp(
+      title: "MasterNews",
       theme: new ThemeData(
         primaryColor: Color(0xFF222222),
         primaryColorDark: Color(0xFF222222),
