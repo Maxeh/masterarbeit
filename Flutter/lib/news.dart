@@ -32,7 +32,7 @@ class NewsPage extends StatefulWidget {
 
 class NewsPageState extends State<NewsPage> {
 
-  Future<List<NewsArticle>> fetchPost() async {
+  Future<List<NewsArticle>> fetchNews() async {
     if (widget.newsList.length > 0) return widget.newsList;
 
     final response = await http.get('https://maxeh.de/masternews.php?type=news');
@@ -52,7 +52,7 @@ class NewsPageState extends State<NewsPage> {
     return Container(
         alignment: Alignment.topCenter,
         child: FutureBuilder<List<NewsArticle>>(
-            future: fetchPost(),
+            future: fetchNews(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return ListView.builder(
