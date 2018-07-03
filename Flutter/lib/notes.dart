@@ -23,9 +23,11 @@ class NotesPage extends StatefulWidget {
     "sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."];
 
   NotesPage({Key key}) : super(key: key) {
+    int i = 0;
     startNotes.forEach((note) {
       String date = formatDate(DateTime.now(), [dd, '/', mm, '/', yyyy, ' - ', HH, ':', nn]);
-      notesList.add(NoteItem(DateTime.now().millisecondsSinceEpoch, note, date));
+      notesList.add(NoteItem(DateTime.now().millisecondsSinceEpoch + i, note, date));
+      i++;
     });
   }
 
