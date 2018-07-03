@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF222222),
         primaryColorDark: Color(0xFF222222),
         accentColor: Color(0xFF222222),
+        textSelectionColor: Color(0xFF222222),
       ),
       home: MyHomePage(),
     );

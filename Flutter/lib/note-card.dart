@@ -7,8 +7,9 @@ class NoteCard extends StatelessWidget {
   final TextStyle textStyle = TextStyle(color: Color(0xFF222222), height: 1.2, fontSize: 15.0);
   final NoteItem noteItem;
   final onDeleteClick;
+  final onEditClick;
 
-  NoteCard(this.noteItem, this.onDeleteClick);
+  NoteCard(this.noteItem, this.onDeleteClick, this.onEditClick);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class NoteCard extends StatelessWidget {
           children: <Widget>[
             IconButton(
                 onPressed: () {
-                  // TODO: back to parent, then to detail page
+                  onEditClick(noteItem);
                 },
                 icon: Icon(Icons.create, color: Color(0xFF222222))),
             IconButton(

@@ -7,8 +7,8 @@ import 'dart:async';
 
 class NoteItem {
   final int id;
-  final String text;
-  final String date;
+  String text;
+  String date;
 
   NoteItem(this.id, this.text, this.date);
 }
@@ -66,12 +66,28 @@ class NotesPageState extends State<NotesPage> {
     );
   }
 
-  void onNoteAdded() {
-    print("ok");
+  void onNoteAdded(String note) {
+    String date = formatDate(DateTime.now(), [dd, '/', mm, '/', yyyy, ' - ', HH, ':', nn]);
+    widget.notesList.add(NoteItem(DateTime.now().millisecondsSinceEpoch, note, date));
+  }
+
+  void onNoteEdited(int id, String text) {
+    String date = formatDate(DateTime.now(), [dd, '/', mm, '/', yyyy, ' - ', HH, ':', nn]);
+    for (int i = 0; i < widget.notesList.length; i++) {
+      if (widget.notesList[i].id == id) {
+        widget.notesList[i].text = text;
+        widget.notesList[i].date = date;
+        setState(() {});
+      }
+    }
   }
 
   void onAddClick() {
-    Navigator.push(context, NotesDetailsPageRoute(onNoteAdded));
+    Navigator.push(context, NotesDetailsPageRoute("add", onNoteAdded));
+  }
+
+  void onEditClick(NoteItem note) {
+    Navigator.push(context, NotesDetailsPageRoute("edit", onNoteEdited, note));
   }
 
   @override
@@ -79,7 +95,7 @@ class NotesPageState extends State<NotesPage> {
     if (widget.notesList.length > 0) {
       List<Widget> listArray = [];
       widget.notesList.forEach((item) {
-        listArray.add(NoteCard(item, onDeleteClick));
+        listArray.add(NoteCard(item, onDeleteClick, onEditClick));
       });
       return Scaffold(
           resizeToAvoidBottomPadding: false,
