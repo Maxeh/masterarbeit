@@ -9,7 +9,7 @@ class WeatherDetails {
   String icon;
   int temp;
 
-  WeatherDetails(String date, String icon, double temp) {
+  WeatherDetails(String date, String icon, num temp) {
     this.date = date.split(" ")[1].split(":")[0] + ":" + date.split(" ")[1].split(":")[1];
     this.icon = icon;
     this.temp = (temp - 273.15).round();
@@ -23,7 +23,7 @@ class WeatherItem {
 
   WeatherItem(this.name, this.id);
 
-  void addWeatherDetails(String date, String icon, double temp) {
+  void addWeatherDetails(String date, String icon, num temp) {
     weatherDetailList.add(WeatherDetails(date, icon, temp));
   }
 }
