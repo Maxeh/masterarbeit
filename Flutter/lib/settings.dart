@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class SettingsPageRoute extends CupertinoPageRoute {
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 200);
+
   SettingsPageRoute() : super(builder: (BuildContext context) => SettingsPage());
 }
 

@@ -3,6 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'news.dart';
 
 class NewsDetailsPageRoute extends CupertinoPageRoute {
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 200);
+
   NewsDetailsPageRoute(NewsArticle newsArticle)
       : super(builder: (BuildContext context) => NewsDetailsPage(newsArticle));
 }

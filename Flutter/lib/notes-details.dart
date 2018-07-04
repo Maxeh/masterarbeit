@@ -3,6 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:date_format/date_format.dart';
 
 class NotesDetailsPageRoute extends CupertinoPageRoute {
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 200);
+
   NotesDetailsPageRoute(type, onNoteAddedOrEdited, [note])
       : super(builder: (BuildContext context) => NotesDetailsPage(type, onNoteAddedOrEdited, note));
 }
