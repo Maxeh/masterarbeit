@@ -6,14 +6,13 @@ import 'notes.dart';
 import 'settings.dart';
 import 'information.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   changeStatusColor(Color color) async {
     try {
       await FlutterStatusbarcolor.setStatusBarColor(color);
-    }
-    on Exception catch (e) {
+    } on Exception catch (e) {
       print(e);
     }
   }
@@ -22,9 +21,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     changeStatusColor(Color(0xFF111111));
 
-    return new MaterialApp(
+    return MaterialApp(
       title: "MasterNews",
-      theme: new ThemeData(
+      theme: ThemeData(
         primaryColor: Color(0xFF222222),
         primaryColorDark: Color(0xFF222222),
         accentColor: Color(0xFF222222),
@@ -37,17 +36,17 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   @override
-  createState() => new MyHomePageState();
+  createState() => MyHomePageState();
 }
 
 class MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
   static const IconData newsIcon = const IconData(0xe904, fontFamily: "icomoon");
-  static const Color primaryColor =  Color(0xFF222222);
+  static const Color primaryColor = Color(0xFF222222);
 
   final List<Tab> myTabs = <Tab>[
-    new Tab(text: 'NEWS'),
-    new Tab(text: 'WETTER'),
-    new Tab(text: 'NOTIZEN'),
+    Tab(text: 'NEWS'),
+    Tab(text: 'WETTER'),
+    Tab(text: 'NOTIZEN'),
   ];
   NewsPage newsPage = NewsPage();
   WeatherPage weatherPage = WeatherPage();
@@ -58,7 +57,7 @@ class MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMi
   @override
   void initState() {
     super.initState();
-    tabController = new TabController(vsync: this, length: myTabs.length);
+    tabController = TabController(vsync: this, length: myTabs.length);
   }
 
   @override
@@ -69,16 +68,16 @@ class MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMi
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       primary: true,
-      appBar: new AppBar(
+      appBar: AppBar(
         title: Text("MasterNews"),
-        bottom: new TabBar(
+        bottom: TabBar(
           controller: tabController,
           tabs: myTabs,
         ),
       ),
-      body: new TabBarView(
+      body: TabBarView(
         controller: tabController,
         children: [
           newsPage,
@@ -89,13 +88,13 @@ class MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMi
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
-            new Container(
-              height: 60.0,
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              alignment: Alignment.centerLeft,
-              color: Color(0xFF222222),
-              child: new Text('MasterNews', style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 20.0))
-            ),
+            Container(
+                height: 60.0,
+                padding: EdgeInsets.symmetric(horizontal: 20.0),
+                alignment: Alignment.centerLeft,
+                color: Color(0xFF222222),
+                child: Text('MasterNews',
+                    style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 20.0))),
             ListTile(
               leading: const Icon(newsIcon, color: primaryColor),
               title: Text("News"),
@@ -120,7 +119,7 @@ class MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMi
                 Navigator.pop(context);
               },
             ),
-            new Divider(),
+            Divider(),
             ListTile(
               leading: const Icon(Icons.settings, color: primaryColor),
               title: Text("Einstellungen"),

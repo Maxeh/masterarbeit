@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'note-card.dart';
+import 'notes-card.dart';
 import 'notes-details.dart';
 import 'package:date_format/date_format.dart';
 import 'dart:async';
@@ -32,7 +32,7 @@ class NotesPage extends StatefulWidget {
   }
 
   @override
-  NotesPageState createState() => new NotesPageState();
+  NotesPageState createState() => NotesPageState();
 }
 
 class NotesPageState extends State<NotesPage> {
@@ -97,20 +97,20 @@ class NotesPageState extends State<NotesPage> {
     if (widget.notesList.length > 0) {
       List<Widget> listArray = [];
       widget.notesList.forEach((item) {
-        listArray.add(NoteCard(item, onDeleteClick, onEditClick));
+        listArray.add(NotesCard(item, onDeleteClick, onEditClick));
       });
       return Scaffold(
           resizeToAvoidBottomPadding: false,
           body: ListView(
-              padding: new EdgeInsets.only(bottom: 75.0),
+              padding: EdgeInsets.only(bottom: 75.0),
               children: listArray
           ),
-          floatingActionButton: new Builder(builder: (BuildContext context) {
+          floatingActionButton: Builder(builder: (BuildContext context) {
             return FloatingActionButton(
               onPressed: () {
                 onAddClick();
               },
-              child: new Icon(Icons.add, color: Colors.white),
+              child: Icon(Icons.add, color: Colors.white),
             );
           })
       );
@@ -120,15 +120,14 @@ class NotesPageState extends State<NotesPage> {
           body: Container(
               padding: EdgeInsets.only(top: 20.0),
               alignment: Alignment.topCenter,
-              child: Text("Keine Notizen angelegt",
-                  style: TextStyle(color: Color(0xFF222222)))
+              child: Text("Keine Notizen angelegt", style: TextStyle(color: Color(0xFF222222)))
           ),
-          floatingActionButton: new Builder(builder: (BuildContext context) {
+          floatingActionButton: Builder(builder: (BuildContext context) {
             return FloatingActionButton(
               onPressed: () {
                 onAddClick();
               },
-              child: new Icon(Icons.add, color: Colors.white),
+              child: Icon(Icons.add, color: Colors.white),
             );
           })
       );

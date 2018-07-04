@@ -4,7 +4,7 @@ import 'news.dart';
 
 class NewsDetailsPageRoute extends CupertinoPageRoute {
   NewsDetailsPageRoute(NewsArticle newsArticle)
-      : super(builder: (BuildContext context) => new NewsDetailsPage(newsArticle));
+      : super(builder: (BuildContext context) => NewsDetailsPage(newsArticle));
 }
 
 class NewsDetailsPage extends StatefulWidget {
@@ -13,13 +13,13 @@ class NewsDetailsPage extends StatefulWidget {
   NewsDetailsPage(this.newsArticle, {Key key}) : super(key: key);
 
   @override
-  NewsDetailsPageState createState() => new NewsDetailsPageState();
+  NewsDetailsPageState createState() => NewsDetailsPageState();
 }
 
 class NewsDetailsPageState extends State<NewsDetailsPage> {
   @override
   Widget build(BuildContext context) {
-    return new WillPopScope(
+    return WillPopScope(
         onWillPop: () async {
           return true;
         },
@@ -27,8 +27,7 @@ class NewsDetailsPageState extends State<NewsDetailsPage> {
             appBar: AppBar(
               title: Text(widget.newsArticle.author),
             ),
-            body:
-            new ListView(
+            body: ListView(
                 children: <Widget>[
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,

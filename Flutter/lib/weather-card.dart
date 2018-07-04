@@ -4,7 +4,7 @@ import 'weather.dart';
 class WeatherCard extends StatelessWidget {
   final TextStyle textStyleCaption = TextStyle(fontSize: 18.0, color: Color(0xFF222222));
   final TextStyle textStyle = TextStyle(color: Color(0xFF222222));
-  final weatherUrl = "https://openweathermap.org/img/w/";
+  final String weatherUrl = "https://openweathermap.org/img/w/";
   final WeatherItem weatherItem;
   final onDeleteClick;
 

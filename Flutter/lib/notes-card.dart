@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'notes.dart';
 
-class NoteCard extends StatelessWidget {
-  final TextStyle textStyleCaption =
-      TextStyle(fontSize: 16.0, color: Color(0xFF222222));
+class NotesCard extends StatelessWidget {
+  final TextStyle textStyleCaption = TextStyle(fontSize: 16.0, color: Color(0xFF222222));
   final TextStyle textStyle = TextStyle(color: Color(0xFF222222), height: 1.2, fontSize: 15.0);
   final NoteItem noteItem;
   final onDeleteClick;
   final onEditClick;
 
-  NoteCard(this.noteItem, this.onDeleteClick, this.onEditClick);
+  NotesCard(this.noteItem, this.onDeleteClick, this.onEditClick);
 
   @override
   Widget build(BuildContext context) {

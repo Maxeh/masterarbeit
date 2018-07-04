@@ -3,19 +3,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:date_format/date_format.dart';
 
 class NotesDetailsPageRoute extends CupertinoPageRoute {
-  NotesDetailsPageRoute(type, onNoteAdded, [note])
-      : super(builder: (BuildContext context) => new NotesDetailsPage(type, onNoteAdded, note));
+  NotesDetailsPageRoute(type, onNoteAddedOrEdited, [note])
+      : super(builder: (BuildContext context) => NotesDetailsPage(type, onNoteAddedOrEdited, note));
 }
 
 class NotesDetailsPage extends StatefulWidget {
-  final onNoteAdded;
+  final onNoteAddedOrEdited;
   final type;
   var note;
 
-  NotesDetailsPage(this.type, this.onNoteAdded, this.note, {Key key}) : super(key: key);
+  NotesDetailsPage(this.type, this.onNoteAddedOrEdited, this.note, {Key key}) : super(key: key);
 
   @override
-  NotesDetailsPageState createState() => new NotesDetailsPageState();
+  NotesDetailsPageState createState() => NotesDetailsPageState();
 }
 
 class NotesDetailsPageState extends State<NotesDetailsPage> {
@@ -32,12 +32,12 @@ class NotesDetailsPageState extends State<NotesDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new WillPopScope(
+    return WillPopScope(
         onWillPop: () async {
           return true;
         },
         child: Scaffold(
-            appBar: new AppBar(
+            appBar: AppBar(
                 title: widget.type == "add" ? Text("Neue Notiz") : Text("Notiz bearbeiten"),
                 actions: <Widget>[
                   IconButton(
@@ -45,9 +45,9 @@ class NotesDetailsPageState extends State<NotesDetailsPage> {
                       onPressed: () {
                         Navigator.pop(context);
                         if (textEditingController.text != "" && widget.type == "add")
-                          widget.onNoteAdded(textEditingController.text);
+                          widget.onNoteAddedOrEdited(textEditingController.text);
                         else if (textEditingController.text != "" && widget.type == "edit")
-                          widget.onNoteAdded(widget.note.id, textEditingController.text);
+                          widget.onNoteAddedOrEdited(widget.note.id, textEditingController.text);
                       }
                   )
                 ]
@@ -65,22 +65,21 @@ class NotesDetailsPageState extends State<NotesDetailsPage> {
                     child: Column(
                       children: <Widget>[
                         TextField(
-
                           maxLines: 10,
-                          keyboardType: TextInputType.multiline,
                           autofocus: true,
+                          keyboardType: TextInputType.multiline,
                           controller: textEditingController,
                           decoration: InputDecoration(
+                              hintText: 'Notiz eingeben...',
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(Radius.circular(2.0))
                               ),
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 8.0, vertical: 8.0)),
+                              contentPadding: EdgeInsets.symmetric(horizontal: 9.0, vertical: 11.0)),
                         ),
                         Container(
                           padding: EdgeInsets.only(top: 3.0),
                           alignment: Alignment.topLeft,
-                          child: Text(date, style: TextStyle(color: Color(0xFF222222)))
+                          child: Text(date, style: TextStyle(color: Color(0xFF666666)))
                         )
                       ],
                     )

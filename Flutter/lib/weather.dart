@@ -19,12 +19,12 @@ class WeatherDetails {
 class WeatherItem {
   final int id;
   final String name;
-  final List<WeatherDetails> weatherDetailList = new List<WeatherDetails>();
+  final List<WeatherDetails> weatherDetailList = List<WeatherDetails>();
 
   WeatherItem(this.name, this.id);
 
   void addWeatherDetails(String date, String icon, double temp) {
-    weatherDetailList.add(new WeatherDetails(date, icon, temp));
+    weatherDetailList.add(WeatherDetails(date, icon, temp));
   }
 }
 
@@ -34,14 +34,14 @@ class WeatherPage extends StatefulWidget {
 
   WeatherPage({Key key}) : super(key: key) {
     startCities.forEach((city) {
-      fetchPost(city);
+      fetchWeather(city);
     });
   }
 
   @override
   WeatherPageState createState() => WeatherPageState();
 
-  Future<void> fetchPost(String city) async {
+  Future<void> fetchWeather(String city) async {
     final response = await http.get('https://maxeh.de/masternews.php?type=weather&city='+city);
     if (response.statusCode == 200) {
       var decoded = json.decode(response.body);
@@ -62,21 +62,27 @@ class WeatherPage extends StatefulWidget {
 
 class WeatherPageState extends State<WeatherPage> {
 
+  void fetchWeather(String city) async {
+    widget.fetchWeather(city).then((n) {
+      setState(() {});
+    });
+  }
+
   Future<Null> onDeleteClick(int id) async {
     return showDialog<Null>(
       context: context,
       builder: (BuildContext context) {
-        return new AlertDialog(
-          title: new Text('Wirklich löschen?'),
+        return AlertDialog(
+          title: Text('Wirklich löschen?'),
           actions: <Widget>[
-            new FlatButton(
-              child: new Text('Abbrechen'),
+            FlatButton(
+              child: Text('Abbrechen'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
-            new FlatButton(
-              child: new Text('Löschen', style: TextStyle(color: Color(0xFFF53D3D))),
+            FlatButton(
+              child: Text('Löschen', style: TextStyle(color: Color(0xFFF53D3D))),
               onPressed: () {
                 for (int i = 0; i < widget.weatherList.length; i++) {
                   if (widget.weatherList[i].id == id) {
@@ -99,12 +105,12 @@ class WeatherPageState extends State<WeatherPage> {
     return showDialog<Null>(
       context: context,
       builder: (BuildContext context) {
-        return new AlertDialog(
-          title: new Text('Name der Stadt'),
-          content: new SingleChildScrollView(
-            child: new ListBody(
+        return AlertDialog(
+          title: Text('Name der Stadt'),
+          content: SingleChildScrollView(
+            child: ListBody(
               children: <Widget>[
-                new TextField(
+                TextField(
                     autofocus: true,
                     decoration: InputDecoration(
                         contentPadding: const EdgeInsets.symmetric(vertical: 5.0)),
@@ -114,17 +120,17 @@ class WeatherPageState extends State<WeatherPage> {
             ),
           ),
           actions: <Widget>[
-            new FlatButton(
-                child: new Text('Abbrechen'),
+            FlatButton(
+                child: Text('Abbrechen'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 }
             ),
-            new FlatButton(
-                child: new Text('Hinzufügen'),
+            FlatButton(
+                child: Text('Hinzufügen'),
                 onPressed: () {
                   if (textEditingController.text != "") {
-                    fetchPost(textEditingController.text);
+                    fetchWeather(textEditingController.text);
                   }
                   Navigator.of(context).pop();
                 }
@@ -133,12 +139,6 @@ class WeatherPageState extends State<WeatherPage> {
         );
       },
     );
-  }
-
-  void fetchPost(String city) async {
-    widget.fetchPost(city).then((n) {
-      setState(() {});
-    });
   }
 
   @override
@@ -151,15 +151,15 @@ class WeatherPageState extends State<WeatherPage> {
       return Scaffold(
           resizeToAvoidBottomPadding: false,
           body: ListView(
-              padding: new EdgeInsets.only(bottom: 75.0),
+              padding: EdgeInsets.only(bottom: 75.0),
               children: listArray
           ),
-          floatingActionButton: new Builder(builder: (BuildContext context) {
+          floatingActionButton: Builder(builder: (BuildContext context) {
             return FloatingActionButton(
               onPressed: () {
                 onAddClick();
               },
-              child: new Icon(Icons.add, color: Colors.white),
+              child: Icon(Icons.add, color: Colors.white),
             );
           })
       );
@@ -172,12 +172,12 @@ class WeatherPageState extends State<WeatherPage> {
               child: Text("Keine Städte hinzugefügt",
                   style: TextStyle(color: Color(0xFF222222)))
           ),
-          floatingActionButton: new Builder(builder: (BuildContext context) {
+          floatingActionButton: Builder(builder: (BuildContext context) {
             return FloatingActionButton(
               onPressed: () {
                 onAddClick();
               },
-              child: new Icon(Icons.add, color: Colors.white),
+              child: Icon(Icons.add, color: Colors.white),
             );
           })
       );
