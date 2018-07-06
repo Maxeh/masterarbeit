@@ -22,6 +22,12 @@ You don't need to put real values in there, when you just create a debug version
 
 10) Connect a smarthphone or start an emulator and run the project with your IDE (green triangle).
 
+## DEMO
+
+![Screen1](https://raw.githubusercontent.com/Maxeh/markdown/master/MasterNews/Flutter/demo1.jpg)
+![Screen1](https://raw.githubusercontent.com/Maxeh/markdown/master/MasterNews/Flutter/demo2.jpg)
+![Screen1](https://raw.githubusercontent.com/Maxeh/markdown/master/MasterNews/Flutter/demo3.jpg)
+
 ## Run on iOS
 
 The app was not configured for iOS during development. With some adjustments the app should also work on iOS.
