@@ -18,11 +18,11 @@ keyPassword=xxx
 keyAlias=xxx
 storeFile=xxx
 ```
-You don't need to put real values in there, when you just create a debug version of the app. If you want to create a release version later on, you have to fill in your keystore information.
+If you just create a debug version of the app, you don't have to put real values in the file. If you want to create a release version later on, you have to fill in your keystore information.
 
 10) Connect a smarthphone or start an emulator and run the project with your IDE (green triangle).
 
-## DEMO
+## Demo
 
 ![Screen1](https://raw.githubusercontent.com/Maxeh/markdown/master/MasterNews/Flutter/demo1.jpg)
 ![Screen1](https://raw.githubusercontent.com/Maxeh/markdown/master/MasterNews/Flutter/demo2.jpg)
