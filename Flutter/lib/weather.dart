@@ -31,6 +31,8 @@ class WeatherItem {
 class WeatherPage extends StatefulWidget {
   final List<WeatherItem> weatherList = List<WeatherItem>();
   final List<String> startCities = ["Duisburg"];
+  bool loadingComplete = false;
+  int count = 0;
 
   WeatherPage({Key key}) : super(key: key) {
     startCities.forEach((city) {
@@ -54,13 +56,32 @@ class WeatherPage extends StatefulWidget {
         );
       }
       weatherList.add(weatherItem);
-    } else {
-      throw Exception('Failed to load data');
+    }
+    count++;
+    if (count == startCities.length) {
+      loadingComplete = true;
     }
   }
 }
 
 class WeatherPageState extends State<WeatherPage> {
+  Timer timer;
+
+  @override
+  dispose() {
+    super.dispose();
+    timer.cancel();
+  }
+
+  WeatherPageState() {
+    const timerInterval = const Duration(milliseconds: 500);
+    timer = new Timer.periodic(timerInterval, (Timer timer) {
+      if (widget.loadingComplete == true) {
+        setState(() {});
+        timer.cancel();
+      }
+    });
+  }
 
   void fetchWeather(String city) async {
     widget.fetchWeather(city).then((n) {
