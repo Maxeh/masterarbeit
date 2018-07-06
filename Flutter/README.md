@@ -1,5 +1,6 @@
 ## Description
 Platform-independent app created with Flutter.
+Link to App in Play Store: https://play.google.com/store/apps/details?id=maxeh.flutter.masternews
 
 ## Install
 
