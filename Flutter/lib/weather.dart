@@ -156,6 +156,7 @@ class WeatherPageState extends State<WeatherPage> {
           ),
           floatingActionButton: Builder(builder: (BuildContext context) {
             return FloatingActionButton(
+              heroTag: null,
               onPressed: () {
                 onAddClick();
               },
@@ -174,6 +175,7 @@ class WeatherPageState extends State<WeatherPage> {
           ),
           floatingActionButton: Builder(builder: (BuildContext context) {
             return FloatingActionButton(
+              heroTag: null,
               onPressed: () {
                 onAddClick();
               },

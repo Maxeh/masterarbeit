@@ -23,53 +23,43 @@ class NewsArticle {
 }
 
 class NewsPage extends StatefulWidget {
-  NewsPage({Key key}) : super(key: key);
   final List<NewsArticle> newsList = List<NewsArticle>();
+  NewsPage({Key key}) : super(key: key);
 
   @override
   NewsPageState createState() => NewsPageState();
 }
 
 class NewsPageState extends State<NewsPage> {
+  NewsPageState() { fetchNews(); }
 
-  Future<List<NewsArticle>> fetchNews() async {
-    if (widget.newsList.length > 0) return widget.newsList;
-
-    final response = await http.get('https://maxeh.de/masternews.php?type=news');
-    if (response.statusCode == 200) {
-      var decoded = json.decode(response.body);
-      for (int i = 0; i < decoded['articles'].length; i++) {
-        widget.newsList.add(NewsArticle.fromJson(decoded['articles'][i]));
+  Future<void> fetchNews() async {
+    if (widget.newsList.length == 0) {
+      var response = await http.get('https://maxeh.de/masternews.php?type=news');
+      if (response.statusCode == 200) {
+        var decoded = json.decode(response.body);
+        for (int i = 0; i < decoded['articles'].length; i++) {
+          widget.newsList.add(NewsArticle.fromJson(decoded['articles'][i]));
+        }
       }
-      return widget.newsList;
-    } else {
-      throw Exception('Failed to load post');
+      setState(() {});
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    if (widget.newsList.length > 0) {
+      List<Widget> listArray = [];
+      for (int i = 0; i < widget.newsList.length; i++) {
+        listArray.add(NewsCard(widget.newsList[i]));
+      }
+      return ListView(children: listArray);
+    } else return Container(
         alignment: Alignment.topCenter,
-        child: FutureBuilder<List<NewsArticle>>(
-            future: fetchNews(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return ListView.builder(
-                  itemBuilder: (BuildContext context, int index) =>
-                      Container(
-                          padding: EdgeInsets.fromLTRB(3.0, 0.0, 3.0, 0.0),
-                          child: NewsCard(snapshot, index)),
-                  itemCount: snapshot.data.length,
-                );
-              } else
-                return Container(
-                    alignment: Alignment.topCenter,
-                    padding: EdgeInsets.only(top: 20.0),
-                    child: SizedBox(
-                        width: 28.0,
-                        height: 28.0,
-                        child: CircularProgressIndicator(strokeWidth: 3.0)));
-            }));
+        padding: EdgeInsets.only(top: 20.0),
+        child: SizedBox(
+          width: 28.0,
+          height: 28.0,
+          child: CircularProgressIndicator(strokeWidth: 3.0)));
   }
 }

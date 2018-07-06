@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'news-details.dart';
 
 class NewsCard extends StatelessWidget {
-  final snapshot;
-  final index;
+  final article;
 
-  NewsCard(this.snapshot, this.index);
+  NewsCard(this.article);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class NewsCard extends StatelessWidget {
             child: ListTile(
                 onTap: () {
                   Navigator.push(
-                      context, NewsDetailsPageRoute(snapshot.data[index]));
+                      context, NewsDetailsPageRoute(article));
                 },
                 contentPadding: EdgeInsets.all(0.0),
                 leading: SizedBox(
@@ -25,14 +24,12 @@ class NewsCard extends StatelessWidget {
                         decoration: BoxDecoration(
                             image: DecorationImage(
                               fit: BoxFit.fill,
-                              image: NetworkImage(
-                                  snapshot.data[index].urlToImage),
+                              image: NetworkImage(article.urlToImage),
                             )))),
                 title: Container(
                   height: 60.0,
                   alignment: Alignment.centerLeft,
-                  child: Text(snapshot.data[index].title,
-                      style: TextStyle(fontSize: 14.0)),
+                  child: Text(article.title, style: TextStyle(fontSize: 14.0)),
                 ))));
   }
 }

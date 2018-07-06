@@ -107,6 +107,7 @@ class NotesPageState extends State<NotesPage> {
           ),
           floatingActionButton: Builder(builder: (BuildContext context) {
             return FloatingActionButton(
+              heroTag: null,
               onPressed: () {
                 onAddClick();
               },
@@ -124,6 +125,7 @@ class NotesPageState extends State<NotesPage> {
           ),
           floatingActionButton: Builder(builder: (BuildContext context) {
             return FloatingActionButton(
+              heroTag: null,
               onPressed: () {
                 onAddClick();
               },
