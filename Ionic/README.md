@@ -1,5 +1,6 @@
 ## Description
 Platform-independent app created with Ionic (Cordova).
+Link to App in Play Store: https://play.google.com/store/apps/details?id=maxeh.ionic.masternews
 
 ## Install
 

@@ -1,5 +1,6 @@
 ## Description
 The app was created with the Android SDK.
+Link to App in Play Store: https://play.google.com/store/apps/details?id=maxeh.androidsdk.masternews
 
 ## Install
 
