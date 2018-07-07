@@ -4,11 +4,11 @@ Link to App in Play Store: https://play.google.com/store/apps/details?id=maxeh.f
 
 ## Install
 
-1) Install the Flutter SDK according to the offical docs (https://flutter.io/get-started/install/).
-2) Install the newest version of Android Studio.
-3) Add flutter/bin to the PATH variable on Windows.
-4) Run flutter_console.bat in the Flutter folder and run the command "flutter doctor" to get further information on what to do next.
-5) Make sure you have Git installed.
+1) Clone repository. When you just download the .zip make sure you have git installed, as it is a requirement for Flutter.
+2) Install the Flutter SDK according to the offical docs (https://flutter.io/get-started/install/).
+3) Install the newest version of Android Studio.
+4) Add flutter/bin to the PATH variable on Windows.
+5) Run flutter_console.bat in the Flutter folder and run the command "flutter doctor" to get further information on what to do next.
 6) Open your IDE (e.g. Android Studio) and install the plugins "Dart" and "Flutter".
 7) Open the project in your IDE.
 8) Get the project's dependencies.
