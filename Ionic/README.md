@@ -1,11 +1,11 @@
 ## Description
-Platform-independent app created with Ionic (Cordova).
+Platform-independent app created with Ionic (Cordova).  
 Link to App in Play Store: https://play.google.com/store/apps/details?id=maxeh.ionic.masternews
 
 ## Install
 
 1) Clone repository.
-2) Install npm and nodejs.
+2) Install `npm`.
 3) Install the npm package `ionic` globally with `npm install -g ionic`.
 4) Install the npm package `cordova` globally with `npm install -g cordova`.
 5) Make sure that you have Java 8 JDK and Android Studio (Android SDK) installed.  
