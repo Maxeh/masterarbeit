@@ -77,7 +77,7 @@ export default class WeatherScreen extends Component {
         />)}
 
         {this.state.cities.length === 0 &&
-        (<Text style={{alignSelf: "center", padding: 20}}>Keine Städte hinzugefügt</Text>)}
+        (<Text style={{color: "#222", alignSelf: "center", padding: 20}}>Keine Städte hinzugefügt</Text>)}
 
         <ConfirmDialog
           titleStyle={{color: "#222"}}

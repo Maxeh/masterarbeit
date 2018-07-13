@@ -122,7 +122,7 @@ export default class NotesScreen extends Component {
         />)}
 
         {this.state.notes.length === 0 &&
-        (<Text style={{alignSelf: "center", padding: 20}}>Keine Notizen angelegt</Text>)}
+        (<Text style={{color: "#222", alignSelf: "center", padding: 20}}>Keine Notizen angelegt</Text>)}
 
         <ConfirmDialog
           titleStyle={{color: "#222"}}

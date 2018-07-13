@@ -56,10 +56,9 @@ const styles = StyleSheet.create({
   wrapperView: {
     marginLeft: 7,
     marginRight: 7,
-    marginBottom: 0,
   },
   card: {
-    marginBottom: 0,
+    marginBottom: 1,
   },
   cardHeader: {
     flexDirection: "row",

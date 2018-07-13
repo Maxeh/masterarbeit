@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     paddingTop: 3
   },
   text: {
-    color: '#222'
+    color: '#222',
+    lineHeight: 20
   },
 });

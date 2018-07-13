@@ -19,7 +19,7 @@ export default class CustomDrawer extends Component {
   render() {
     return (
       <ScrollView>
-        <View style={{justifyContent: 'center', height: 70, backgroundColor: '#222'}}>
+        <View style={{justifyContent: 'center', height: 56, backgroundColor: '#222'}}>
           <Text style={{fontSize: 20, color: '#fff', marginLeft: 15}}>MasterNews</Text>
         </View>
         <View style={{flex: 1}}>
@@ -35,10 +35,10 @@ export default class CustomDrawer extends Component {
               }
             }}
           >
-            <View style={this.state.newsClicked ? {backgroundColor: '#DDD'} : null}>
+            <View style={this.state.newsClicked ? {backgroundColor: '#DDD', marginTop: 8} : {marginTop: 8}}>
               <View style={styles.buttonRow}>
                 <View style={styles.buttonIcon}>
-                  <Icon name='md-paper' style={{color: '#000', fontSize: 30}}/>
+                  <Icon name='md-paper' style={{color: '#222', fontSize: 26}}/>
                 </View>
                 <Text style={styles.buttonText}>News</Text>
               </View>
@@ -60,7 +60,7 @@ export default class CustomDrawer extends Component {
             <View style={this.state.weatherClicked ? {backgroundColor: '#DDD'} : null}>
               <View style={styles.buttonRow}>
                 <View style={styles.buttonIcon}>
-                  <Icon name='md-sunny' style={{color: '#000', fontSize: 30}}/>
+                  <Icon name='md-sunny' style={{color: '#222', fontSize: 26}}/>
                 </View>
                 <Text style={styles.buttonText}>Wetter</Text>
               </View>
@@ -82,7 +82,7 @@ export default class CustomDrawer extends Component {
             <View style={this.state.notesClicked ? {backgroundColor: '#DDD'} : null}>
               <View style={styles.buttonRow}>
                 <View style={styles.buttonIcon}>
-                  <Icon name='md-create' style={{color: '#000', fontSize: 30}}/>
+                  <Icon name='md-create' style={{color: '#222', fontSize: 26}}/>
                 </View>
                 <Text style={styles.buttonText}>Notizen</Text>
               </View>
@@ -99,7 +99,7 @@ export default class CustomDrawer extends Component {
             <View style={this.state.settingsClicked ? {backgroundColor: '#DDD'} : null}>
               <View style={styles.buttonRow}>
                 <View style={styles.buttonIcon}>
-                  <Icon name='settings' style={{color: '#000', fontSize: 30}}/>
+                  <Icon name='settings' style={{color: '#222', fontSize: 26}}/>
                 </View>
                 <Text style={styles.buttonText}>Einstellungen</Text>
               </View>
@@ -114,7 +114,7 @@ export default class CustomDrawer extends Component {
             <View style={this.state.infoClicked ? {backgroundColor: '#DDD'} : null}>
               <View style={styles.buttonRow}>
                 <View style={styles.buttonIcon}>
-                  <Icon name='information-circle' style={{color: '#000', fontSize: 30}}/>
+                  <Icon name='information-circle' style={{color: '#222', fontSize: 26}}/>
                 </View>
                 <Text style={styles.buttonText}>Information</Text>
               </View>
@@ -161,13 +161,13 @@ const styles = {
     flexDirection: 'row',
     alignItems: 'center',
     margin: 10,
-    marginLeft: 15
+    marginLeft: 20
   },
   buttonIcon: {
     width: 35
   },
   buttonText: {
-    marginLeft: 15,
+    marginLeft: 20,
     fontSize: 15,
     color: '#000'
   }
