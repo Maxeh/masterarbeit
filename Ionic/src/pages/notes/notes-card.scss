@@ -1,4 +1,7 @@
 .notes-card {
+  margin-bottom: 6px !important;
+  margin-top: 6px !important;
+
   ion-card-header {
     padding: 0;
     display: flex;
@@ -7,8 +10,8 @@
   }
 
   ion-card-content {
-    padding: 13px 16px;
-    font-size: 1.6rem;
+    padding: 14px 16px;
+    font-size: 15px;
   }
 
   hr {

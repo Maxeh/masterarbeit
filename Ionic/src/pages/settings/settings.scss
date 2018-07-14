@@ -1,7 +1,20 @@
 .settings-list {
+  .checkbox-item .item-inner {
+    margin-left: -10px;
+  }
+
+  .radiobutton-item {
+    .item-inner {
+      margin-left: 4px;
+    }
+    .radio-icon {
+      margin-right: 8px;
+    }
+  }
+
   .settings-list-caption {
-    padding: 20px 0 15px 20px;
-    font-size: 2rem;
+    padding: 20px 0 15px 15px;
+    font-size: 22px;
   }
 
   .settings-last-check-item {
@@ -10,8 +23,13 @@
     }
   }
 
+  ion-item  {
+    height: 52px;
+  }
+
   hr {
     height: 1px;
     margin: 0;
+    color: #CCC !important;
   }
 }

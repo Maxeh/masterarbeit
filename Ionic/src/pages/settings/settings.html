@@ -13,19 +13,19 @@
       Nachrichten Quellen
     </div>
     <hr>
-    <ion-item>
+    <ion-item class="checkbox-item">
       <ion-label>Reuters</ion-label>
       <ion-checkbox color="dark" [checked]="true"></ion-checkbox>
     </ion-item>
-    <ion-item>
+    <ion-item class="checkbox-item">
       <ion-label>Spiegel Online</ion-label>
       <ion-checkbox color="dark"></ion-checkbox>
     </ion-item>
-    <ion-item>
+    <ion-item class="checkbox-item">
       <ion-label>Focus Online</ion-label>
       <ion-checkbox color="dark"></ion-checkbox>
     </ion-item>
-    <ion-item no-lines>
+    <ion-item class="checkbox-item" no-lines>
       <ion-label>Handelsblatt</ion-label>
       <ion-checkbox color="dark"></ion-checkbox>
     </ion-item>
@@ -34,19 +34,21 @@
       Wetter Quellen
     </div>
     <hr>
+
     <div radio-group>
-      <ion-item>
+      <ion-item class="radiobutton-item">
         <ion-label>OpenWeatherMap</ion-label>
         <ion-radio color="dark" value="friends" checked></ion-radio>
       </ion-item>
-      <ion-item>
+      <ion-item class="radiobutton-item">
         <ion-label>Wetter Online</ion-label>
         <ion-radio color="dark" value="family"></ion-radio>
       </ion-item>
-      <ion-item>
+      <ion-item class="radiobutton-item" no-lines>
         <ion-label>Wetter24</ion-label>
         <ion-radio color="dark" value="enemies" [disabled]="isDisabled"></ion-radio>
       </ion-item>
     </div>
+    <hr>
   </ion-list>
 </ion-content>

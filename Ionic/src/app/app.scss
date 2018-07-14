@@ -18,6 +18,8 @@
   }
 
   .menu-content-list {
+    padding-top: 8px;
+
     .item-inner, .item-block {
       border: none !important;
     }
@@ -32,10 +34,17 @@
     }
 
     .menu-item-icon {
+      margin-left: 3px;
       position: relative;
-      font-size: 28px;
+      font-size: 26px;
       width: 45px;
       top: 4px;
+      color: #222;
+    }
+
+    .menu-item-title {
+      color: #222;
+      margin-left: 8px;
     }
   }
 }
