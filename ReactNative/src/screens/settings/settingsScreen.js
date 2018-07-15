@@ -55,7 +55,7 @@ export default class SettingsScreen extends Component {
 
   render() {
     return (
-      <Container>
+      <Container style={{backgroundColor:"#FEFEFE"}}>
         <Content>
           <View style={styles.textCaptionView}>
             <Text style={styles.textCaption}>Nachrichten Quellen</Text>
@@ -134,17 +134,19 @@ export default class SettingsScreen extends Component {
             />
           </ListItem>
 
-          <ListItem
-            style={{justifyContent: "space-between"}}
-            onPress={() => this.setRadioButton("radioOpenWetter24")}
-          >
-            <Text style={styles.text}>Wetter24</Text>
-            <Radio
+          <View style={styles.checkBoxLast}>
+            <ListItem
+              style={{justifyContent: "space-between", borderBottomWidth: 0}}
               onPress={() => this.setRadioButton("radioOpenWetter24")}
-              style={styles.radioText} selectedColor='#222'
-              selected={this.state.radioWetter24}
-            />
-          </ListItem>
+            >
+              <Text style={styles.text}>Wetter24</Text>
+              <Radio
+                onPress={() => this.setRadioButton("radioOpenWetter24")}
+                style={styles.radioText} selectedColor='#222'
+                selected={this.state.radioWetter24}
+              />
+            </ListItem>
+          </View>
         </Content>
       </Container>
     );
@@ -154,7 +156,7 @@ export default class SettingsScreen extends Component {
 const styles = StyleSheet.create({
   textCaptionView: {
     borderBottomWidth: 1,
-    borderBottomColor: "#ddd",
+    borderBottomColor: "#eee",
     padding: 15
   },
   textCaption: {
@@ -169,7 +171,7 @@ const styles = StyleSheet.create({
   },
   checkBoxLast: {
     borderBottomWidth: 1,
-    borderColor: '#ddd'
+    borderColor: '#eee'
   },
   radioText: {
     marginRight: 10

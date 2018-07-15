@@ -111,7 +111,7 @@ export default class NotesScreen extends Component {
 
   render = () => {
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor:"#FEFEFE"}}>
         {this.state.notes.length > 0 &&
         (<FlatList
           data={this.state.notes}

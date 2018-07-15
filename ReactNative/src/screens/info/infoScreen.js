@@ -10,7 +10,7 @@ export default class InfoScreen extends Component {
 
   render() {
     return (
-      <Container>
+      <Container style={{backgroundColor:"#FEFEFE"}}>
         <Content style={styles.content}>
           <Card>
             <CardItem>

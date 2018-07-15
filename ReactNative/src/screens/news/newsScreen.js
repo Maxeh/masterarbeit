@@ -28,17 +28,21 @@ export default class NewsScreen extends Component {
   renderContent = () => {
     if (this.state.articles.length > 0) {
       return (
-        <FlatList
-          data={this.state.articles}
-          extraData={this.state}
-          keyExtractor={this.keyExtractor}
-          renderItem={this.renderItem}
-          contentContainerStyle={{paddingBottom: 8}}
-        />
+        <View style={{flex: 1, backgroundColor: '#FEFEFE'}}>
+          <FlatList
+            data={this.state.articles}
+            extraData={this.state}
+            keyExtractor={this.keyExtractor}
+            renderItem={this.renderItem}
+            contentContainerStyle={{paddingBottom: 5, paddingTop: 1}}
+          />
+        </View>
       )
     } else return (
-      <View style={styles.container}>
-        <ActivityIndicator size="large" color="#222"/>
+      <View style={{flex:1, backgroundColor:'#FEFEFE'}}>
+        <View style={styles.container}>
+          <ActivityIndicator size="large" color="#222"/>
+        </View>
       </View>
     )
   }

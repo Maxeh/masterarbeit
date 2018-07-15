@@ -10,7 +10,7 @@ export default class NewsDetailScreen extends Component {
 
   render() {
     return (
-      <Content>
+      <Content style={{backgroundColor:"#FEFEFE"}}>
         <Image
           resizeMode={'cover'}
           style={styles.image}

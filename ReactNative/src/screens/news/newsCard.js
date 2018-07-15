@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   wrapperView: {
     marginLeft: 7,
     marginRight: 7,
-    marginBottom: -5
+    marginBottom: -4,
   },
   cardRow: {
     flex: 1,

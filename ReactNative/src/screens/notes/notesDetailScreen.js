@@ -91,6 +91,7 @@ export default class NotesDetailScreen extends Component {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
+    backgroundColor: "#FEFEFE"
   },
   content: {
     paddingTop: 5,
