@@ -14,6 +14,14 @@ Link to App in Play Store: https://play.google.com/store/apps/details?id=maxeh.i
 8) Start the app with the command `ionic serve`
 9) You can deploy the app to your phone or emulator with `ionic cordova run android`. Useful parameters: `--device`, `--prod`
 
+
+## Demo
+
+![Screen1](https://raw.githubusercontent.com/Maxeh/markdown/master/MasterNews/Ionic/demo1.jpg)
+![Screen1](https://raw.githubusercontent.com/Maxeh/markdown/master/MasterNews/Ionic/demo2.jpg)
+![Screen1](https://raw.githubusercontent.com/Maxeh/markdown/master/MasterNews/Ionic/demo3.jpg)
+
+
 ## Run on iOS
 
 The app was not configured for iOS during development. With some additional adjustments it would also be possible to run the app on iOS with `ionic cordova run ios`.

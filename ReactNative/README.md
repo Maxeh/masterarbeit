@@ -11,6 +11,12 @@ Platform-independent app created with React Native.
 7) Connect your android phone to the computer or start the android emulator.
 8) After that execute the command `react-native run-android` in your project folder to compile the app and to load it to the phone or emulator.
 
+## Demo
+
+![Screen1](https://raw.githubusercontent.com/Maxeh/markdown/master/MasterNews/React%20Native/demo1.jpg)
+![Screen1](https://raw.githubusercontent.com/Maxeh/markdown/master/MasterNews/React%20Native/demo2.jpg)
+![Screen1](https://raw.githubusercontent.com/Maxeh/markdown/master/MasterNews/React%20Native/demo3.jpg)
+
 ## Run on iOS
 
 The app was not configured for iOS during development (e. g. the splashscreen plugin was not adjusted to iOS => see GitHub page of the plugin). 
