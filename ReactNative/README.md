@@ -1,5 +1,6 @@
 ## Description
-Platform-independent app created with React Native.
+Platform-independent app created with React Native.   
+Link to App in Play Store: https://play.google.com/store/apps/details?id=maxeh.reactnative.masternews
 
 ## Install
 
